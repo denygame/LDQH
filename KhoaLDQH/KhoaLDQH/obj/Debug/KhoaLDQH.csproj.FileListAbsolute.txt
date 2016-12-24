@@ -1,0 +1,12 @@
+E:\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.exe.config
+E:\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.exe
+E:\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.pdb
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.csprojResolveAssemblyReference.cache
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Form1.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Properties.Resources.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.csproj.GenerateResource.Cache
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.exe
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.pdb
+C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.exe.config
+C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.exe
+C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.pdb

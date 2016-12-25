@@ -45,7 +45,7 @@ namespace KhoaLDQH
                 solution.Phai = "";
 
                 int n = 0;
-                solution.layData(txtF.Text, ref n, txtU);
+                solution.layData(txtF.Text, ref n, txtU,txtF);
 
                 string tam = txtU.Text;
                 //Tập thuộc tính nguồn (TN) : bao gồm các thuộc tính chỉ xuất hiện ở vế trái, không xuất hiện ở vế phải của F( tập phụ thuộc hàm) và các thuộc tính không xuất hiện ở cả vế trái và vế phải của F. <U-P>
@@ -237,7 +237,7 @@ namespace KhoaLDQH
                 solution.Phai = "";
 
                 int n = 0;
-                solution.layData(txtF.Text, ref n, txtU);
+                solution.layData(txtF.Text, ref n, txtU,txtF);
 
                 string K = txtU.Text;
                 string tam = K;

@@ -38,50 +38,54 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liênHệToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPhu = new System.Windows.Forms.TabPage();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.txtPhu = new System.Windows.Forms.TextBox();
-            this.btnSavePhu = new System.Windows.Forms.Button();
-            this.tabKhoa = new System.Windows.Forms.TabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.txtKhoa = new System.Windows.Forms.TextBox();
-            this.btn1Khoa = new System.Windows.Forms.Button();
-            this.btnSaveKhoa = new System.Windows.Forms.Button();
-            this.btnMKhoa = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabBD = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.txtBD = new System.Windows.Forms.TextBox();
-            this.btnBD = new System.Windows.Forms.Button();
-            this.btnTC = new System.Windows.Forms.Button();
             this.btnSaveBD = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btnTC = new System.Windows.Forms.Button();
+            this.btnBD = new System.Windows.Forms.Button();
+            this.txtBD = new System.Windows.Forms.TextBox();
+            this.tabKhoa = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btnMKhoa = new System.Windows.Forms.Button();
+            this.btnSaveKhoa = new System.Windows.Forms.Button();
+            this.btn1Khoa = new System.Windows.Forms.Button();
+            this.txtKhoa = new System.Windows.Forms.TextBox();
+            this.tabPhu = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.btnPhu = new System.Windows.Forms.Button();
+            this.btnSavePhu = new System.Windows.Forms.Button();
+            this.txtPhu = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabPhu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.tabKhoa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.tabBD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabKhoa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.tabPhu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -188,6 +192,195 @@
             this.liênHệToolStripMenuItem.Text = "Liên Hệ";
             this.liênHệToolStripMenuItem.Click += new System.EventHandler(this.liênHệToolStripMenuItem_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabBD);
+            this.tabControl1.Controls.Add(this.tabKhoa);
+            this.tabControl1.Controls.Add(this.tabPhu);
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(686, 380);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabBD
+            // 
+            this.tabBD.Controls.Add(this.splitContainer2);
+            this.tabBD.Location = new System.Drawing.Point(4, 22);
+            this.tabBD.Name = "tabBD";
+            this.tabBD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBD.Size = new System.Drawing.Size(678, 354);
+            this.tabBD.TabIndex = 0;
+            this.tabBD.Text = "Bao Đóng";
+            this.tabBD.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.LightGray;
+            this.splitContainer2.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer2.Panel1.Controls.Add(this.btnSaveBD);
+            this.splitContainer2.Panel1.Controls.Add(this.btnTC);
+            this.splitContainer2.Panel1.Controls.Add(this.btnBD);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.txtBD);
+            this.splitContainer2.Size = new System.Drawing.Size(672, 348);
+            this.splitContainer2.SplitterDistance = 124;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // btnSaveBD
+            // 
+            this.btnSaveBD.BackColor = System.Drawing.Color.Black;
+            this.btnSaveBD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveBD.ForeColor = System.Drawing.Color.Red;
+            this.btnSaveBD.Location = new System.Drawing.Point(18, 290);
+            this.btnSaveBD.Name = "btnSaveBD";
+            this.btnSaveBD.Size = new System.Drawing.Size(85, 27);
+            this.btnSaveBD.TabIndex = 2;
+            this.btnSaveBD.Text = "Lưu KQ";
+            this.btnSaveBD.UseVisualStyleBackColor = false;
+            this.btnSaveBD.Click += new System.EventHandler(this.btnSaveBD_Click);
+            // 
+            // btnTC
+            // 
+            this.btnTC.BackColor = System.Drawing.Color.Black;
+            this.btnTC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTC.ForeColor = System.Drawing.Color.Red;
+            this.btnTC.Location = new System.Drawing.Point(18, 139);
+            this.btnTC.Name = "btnTC";
+            this.btnTC.Size = new System.Drawing.Size(85, 29);
+            this.btnTC.TabIndex = 1;
+            this.btnTC.Text = "Tập Con";
+            this.btnTC.UseVisualStyleBackColor = false;
+            this.btnTC.Click += new System.EventHandler(this.btnTC_Click);
+            // 
+            // btnBD
+            // 
+            this.btnBD.BackColor = System.Drawing.Color.Black;
+            this.btnBD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBD.ForeColor = System.Drawing.Color.Red;
+            this.btnBD.Location = new System.Drawing.Point(11, 36);
+            this.btnBD.Name = "btnBD";
+            this.btnBD.Size = new System.Drawing.Size(101, 26);
+            this.btnBD.TabIndex = 0;
+            this.btnBD.Text = "Kết Quả";
+            this.btnBD.UseVisualStyleBackColor = false;
+            this.btnBD.Click += new System.EventHandler(this.btnBD_Click);
+            // 
+            // txtBD
+            // 
+            this.txtBD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBD.Location = new System.Drawing.Point(3, 3);
+            this.txtBD.Multiline = true;
+            this.txtBD.Name = "txtBD";
+            this.txtBD.ReadOnly = true;
+            this.txtBD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBD.Size = new System.Drawing.Size(538, 342);
+            this.txtBD.TabIndex = 0;
+            // 
+            // tabKhoa
+            // 
+            this.tabKhoa.Controls.Add(this.splitContainer3);
+            this.tabKhoa.Location = new System.Drawing.Point(4, 22);
+            this.tabKhoa.Name = "tabKhoa";
+            this.tabKhoa.Padding = new System.Windows.Forms.Padding(3);
+            this.tabKhoa.Size = new System.Drawing.Size(678, 354);
+            this.tabKhoa.TabIndex = 2;
+            this.tabKhoa.Text = "Khóa";
+            this.tabKhoa.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.BackColor = System.Drawing.Color.LightGray;
+            this.splitContainer3.Panel1.Controls.Add(this.btnMKhoa);
+            this.splitContainer3.Panel1.Controls.Add(this.btnSaveKhoa);
+            this.splitContainer3.Panel1.Controls.Add(this.btn1Khoa);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.txtKhoa);
+            this.splitContainer3.Size = new System.Drawing.Size(672, 348);
+            this.splitContainer3.SplitterDistance = 124;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // btnMKhoa
+            // 
+            this.btnMKhoa.BackColor = System.Drawing.Color.Black;
+            this.btnMKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMKhoa.ForeColor = System.Drawing.Color.Red;
+            this.btnMKhoa.Location = new System.Drawing.Point(3, 86);
+            this.btnMKhoa.Name = "btnMKhoa";
+            this.btnMKhoa.Size = new System.Drawing.Size(118, 26);
+            this.btnMKhoa.TabIndex = 3;
+            this.btnMKhoa.Text = "Tìm Mọi Khóa";
+            this.btnMKhoa.UseVisualStyleBackColor = false;
+            this.btnMKhoa.Click += new System.EventHandler(this.btnMKhoa_Click);
+            // 
+            // btnSaveKhoa
+            // 
+            this.btnSaveKhoa.BackColor = System.Drawing.Color.Black;
+            this.btnSaveKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveKhoa.ForeColor = System.Drawing.Color.Red;
+            this.btnSaveKhoa.Location = new System.Drawing.Point(18, 290);
+            this.btnSaveKhoa.Name = "btnSaveKhoa";
+            this.btnSaveKhoa.Size = new System.Drawing.Size(85, 27);
+            this.btnSaveKhoa.TabIndex = 2;
+            this.btnSaveKhoa.Text = "Lưu KQ";
+            this.btnSaveKhoa.UseVisualStyleBackColor = false;
+            this.btnSaveKhoa.Click += new System.EventHandler(this.btnSaveKhoa_Click);
+            // 
+            // btn1Khoa
+            // 
+            this.btn1Khoa.BackColor = System.Drawing.Color.Black;
+            this.btn1Khoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn1Khoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn1Khoa.ForeColor = System.Drawing.Color.Red;
+            this.btn1Khoa.Location = new System.Drawing.Point(3, 36);
+            this.btn1Khoa.Name = "btn1Khoa";
+            this.btn1Khoa.Size = new System.Drawing.Size(118, 26);
+            this.btn1Khoa.TabIndex = 0;
+            this.btn1Khoa.Text = "Tìm Một Khóa";
+            this.btn1Khoa.UseVisualStyleBackColor = false;
+            this.btn1Khoa.Click += new System.EventHandler(this.btn1Khoa_Click);
+            // 
+            // txtKhoa
+            // 
+            this.txtKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKhoa.Location = new System.Drawing.Point(3, 3);
+            this.txtKhoa.Multiline = true;
+            this.txtKhoa.Name = "txtKhoa";
+            this.txtKhoa.ReadOnly = true;
+            this.txtKhoa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtKhoa.Size = new System.Drawing.Size(538, 342);
+            this.txtKhoa.TabIndex = 0;
+            // 
             // tabPhu
             // 
             this.tabPhu.Controls.Add(this.splitContainer4);
@@ -218,16 +411,19 @@
             this.splitContainer4.SplitterDistance = 124;
             this.splitContainer4.TabIndex = 0;
             // 
-            // txtPhu
+            // btnPhu
             // 
-            this.txtPhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhu.Location = new System.Drawing.Point(3, 3);
-            this.txtPhu.Multiline = true;
-            this.txtPhu.Name = "txtPhu";
-            this.txtPhu.ReadOnly = true;
-            this.txtPhu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPhu.Size = new System.Drawing.Size(538, 342);
-            this.txtPhu.TabIndex = 0;
+            this.btnPhu.BackColor = System.Drawing.Color.Black;
+            this.btnPhu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhu.ForeColor = System.Drawing.Color.Red;
+            this.btnPhu.Location = new System.Drawing.Point(11, 36);
+            this.btnPhu.Name = "btnPhu";
+            this.btnPhu.Size = new System.Drawing.Size(101, 26);
+            this.btnPhu.TabIndex = 3;
+            this.btnPhu.Text = "Kết Quả";
+            this.btnPhu.UseVisualStyleBackColor = false;
+            this.btnPhu.Click += new System.EventHandler(this.btnPhu_Click);
             // 
             // btnSavePhu
             // 
@@ -243,198 +439,29 @@
             this.btnSavePhu.UseVisualStyleBackColor = false;
             this.btnSavePhu.Click += new System.EventHandler(this.btnSavePhu_Click);
             // 
-            // tabKhoa
+            // txtPhu
             // 
-            this.tabKhoa.Controls.Add(this.splitContainer3);
-            this.tabKhoa.Location = new System.Drawing.Point(4, 22);
-            this.tabKhoa.Name = "tabKhoa";
-            this.tabKhoa.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKhoa.Size = new System.Drawing.Size(678, 354);
-            this.tabKhoa.TabIndex = 2;
-            this.tabKhoa.Text = "Khóa";
-            this.tabKhoa.UseVisualStyleBackColor = true;
+            this.txtPhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhu.Location = new System.Drawing.Point(3, 3);
+            this.txtPhu.Multiline = true;
+            this.txtPhu.Name = "txtPhu";
+            this.txtPhu.ReadOnly = true;
+            this.txtPhu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPhu.Size = new System.Drawing.Size(538, 342);
+            this.txtPhu.TabIndex = 0;
             // 
-            // splitContainer3
+            // comboBox1
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.BackColor = System.Drawing.Color.LightGray;
-            this.splitContainer3.Panel1.Controls.Add(this.btnMKhoa);
-            this.splitContainer3.Panel1.Controls.Add(this.btnSaveKhoa);
-            this.splitContainer3.Panel1.Controls.Add(this.btn1Khoa);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.txtKhoa);
-            this.splitContainer3.Size = new System.Drawing.Size(672, 348);
-            this.splitContainer3.SplitterDistance = 124;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // txtKhoa
-            // 
-            this.txtKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKhoa.Location = new System.Drawing.Point(3, 3);
-            this.txtKhoa.Multiline = true;
-            this.txtKhoa.Name = "txtKhoa";
-            this.txtKhoa.ReadOnly = true;
-            this.txtKhoa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtKhoa.Size = new System.Drawing.Size(538, 342);
-            this.txtKhoa.TabIndex = 0;
-            // 
-            // btn1Khoa
-            // 
-            this.btn1Khoa.BackColor = System.Drawing.Color.Black;
-            this.btn1Khoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn1Khoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn1Khoa.ForeColor = System.Drawing.Color.Red;
-            this.btn1Khoa.Location = new System.Drawing.Point(3, 36);
-            this.btn1Khoa.Name = "btn1Khoa";
-            this.btn1Khoa.Size = new System.Drawing.Size(118, 26);
-            this.btn1Khoa.TabIndex = 0;
-            this.btn1Khoa.Text = "Tìm Một Khóa";
-            this.btn1Khoa.UseVisualStyleBackColor = false;
-            this.btn1Khoa.Click += new System.EventHandler(this.btn1Khoa_Click);
-            // 
-            // btnSaveKhoa
-            // 
-            this.btnSaveKhoa.BackColor = System.Drawing.Color.Black;
-            this.btnSaveKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveKhoa.ForeColor = System.Drawing.Color.Red;
-            this.btnSaveKhoa.Location = new System.Drawing.Point(18, 290);
-            this.btnSaveKhoa.Name = "btnSaveKhoa";
-            this.btnSaveKhoa.Size = new System.Drawing.Size(85, 27);
-            this.btnSaveKhoa.TabIndex = 2;
-            this.btnSaveKhoa.Text = "Lưu KQ";
-            this.btnSaveKhoa.UseVisualStyleBackColor = false;
-            this.btnSaveKhoa.Click += new System.EventHandler(this.btnSaveKhoa_Click);
-            // 
-            // btnMKhoa
-            // 
-            this.btnMKhoa.BackColor = System.Drawing.Color.Black;
-            this.btnMKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMKhoa.ForeColor = System.Drawing.Color.Red;
-            this.btnMKhoa.Location = new System.Drawing.Point(3, 86);
-            this.btnMKhoa.Name = "btnMKhoa";
-            this.btnMKhoa.Size = new System.Drawing.Size(118, 26);
-            this.btnMKhoa.TabIndex = 3;
-            this.btnMKhoa.Text = "Tìm Mọi Khóa";
-            this.btnMKhoa.UseVisualStyleBackColor = false;
-            this.btnMKhoa.Click += new System.EventHandler(this.btnMKhoa_Click);
-            // 
-            // tabBD
-            // 
-            this.tabBD.Controls.Add(this.splitContainer2);
-            this.tabBD.Location = new System.Drawing.Point(4, 22);
-            this.tabBD.Name = "tabBD";
-            this.tabBD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBD.Size = new System.Drawing.Size(678, 354);
-            this.tabBD.TabIndex = 0;
-            this.tabBD.Text = "Bao Đóng";
-            this.tabBD.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.LightGray;
-            this.splitContainer2.Panel1.Controls.Add(this.btnSaveBD);
-            this.splitContainer2.Panel1.Controls.Add(this.btnTC);
-            this.splitContainer2.Panel1.Controls.Add(this.btnBD);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.txtBD);
-            this.splitContainer2.Size = new System.Drawing.Size(672, 348);
-            this.splitContainer2.SplitterDistance = 124;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // txtBD
-            // 
-            this.txtBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBD.Location = new System.Drawing.Point(3, 3);
-            this.txtBD.Multiline = true;
-            this.txtBD.Name = "txtBD";
-            this.txtBD.ReadOnly = true;
-            this.txtBD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBD.Size = new System.Drawing.Size(538, 342);
-            this.txtBD.TabIndex = 0;
-            // 
-            // btnBD
-            // 
-            this.btnBD.BackColor = System.Drawing.Color.Black;
-            this.btnBD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBD.ForeColor = System.Drawing.Color.Red;
-            this.btnBD.Location = new System.Drawing.Point(11, 36);
-            this.btnBD.Name = "btnBD";
-            this.btnBD.Size = new System.Drawing.Size(101, 26);
-            this.btnBD.TabIndex = 0;
-            this.btnBD.Text = "Kết Quả";
-            this.btnBD.UseVisualStyleBackColor = false;
-            this.btnBD.Click += new System.EventHandler(this.btnBD_Click);
-            // 
-            // btnTC
-            // 
-            this.btnTC.BackColor = System.Drawing.Color.Black;
-            this.btnTC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTC.ForeColor = System.Drawing.Color.Red;
-            this.btnTC.Location = new System.Drawing.Point(18, 97);
-            this.btnTC.Name = "btnTC";
-            this.btnTC.Size = new System.Drawing.Size(85, 29);
-            this.btnTC.TabIndex = 1;
-            this.btnTC.Text = "Tập Con";
-            this.btnTC.UseVisualStyleBackColor = false;
-            this.btnTC.Click += new System.EventHandler(this.btnTC_Click);
-            // 
-            // btnSaveBD
-            // 
-            this.btnSaveBD.BackColor = System.Drawing.Color.Black;
-            this.btnSaveBD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveBD.ForeColor = System.Drawing.Color.Red;
-            this.btnSaveBD.Location = new System.Drawing.Point(18, 290);
-            this.btnSaveBD.Name = "btnSaveBD";
-            this.btnSaveBD.Size = new System.Drawing.Size(85, 27);
-            this.btnSaveBD.TabIndex = 2;
-            this.btnSaveBD.Text = "Lưu KQ";
-            this.btnSaveBD.UseVisualStyleBackColor = false;
-            this.btnSaveBD.Click += new System.EventHandler(this.btnSaveBD_Click);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabBD);
-            this.tabControl1.Controls.Add(this.tabKhoa);
-            this.tabControl1.Controls.Add(this.tabPhu);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(686, 380);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // btnPhu
-            // 
-            this.btnPhu.BackColor = System.Drawing.Color.Black;
-            this.btnPhu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhu.ForeColor = System.Drawing.Color.Red;
-            this.btnPhu.Location = new System.Drawing.Point(11, 36);
-            this.btnPhu.Name = "btnPhu";
-            this.btnPhu.Size = new System.Drawing.Size(101, 26);
-            this.btnPhu.TabIndex = 3;
-            this.btnPhu.Text = "Kết Quả";
-            this.btnPhu.UseVisualStyleBackColor = false;
-            this.btnPhu.Click += new System.EventHandler(this.btnPhu_Click);
+            this.comboBox1.DropDownHeight = 100;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.Location = new System.Drawing.Point(13, 68);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(99, 23);
+            this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -456,25 +483,25 @@
             this.splitContainer1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabPhu.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            this.tabKhoa.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.tabBD.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabKhoa.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.tabPhu.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -509,5 +536,6 @@
         private System.Windows.Forms.Button btnSavePhu;
         private System.Windows.Forms.TextBox txtPhu;
         private System.Windows.Forms.Button btnPhu;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -13,6 +13,16 @@ namespace KhoaLDQH
 {
     public partial class Form1 : Form
     {
+        private void Reset(TextBox txttest)
+        {
+            txttest.Text = "";
+            txtF.Text = "";
+            if (txttest == txtBD)
+                comboBox1.Items.Clear();
+            
+        }
+
+
         public Form1()
         {
             InitializeComponent();
@@ -57,13 +67,15 @@ namespace KhoaLDQH
 
         private void btnBD_Click(object sender, EventArgs e)
         {
+            comboBox1.Items.Clear();
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtBD);
                 return;
             }
             BaoDong bd = new BaoDong();
-            bd.ShowBD(txtU, txtF, txtBD);
+            bd.ShowBD(txtU, txtF, txtBD, comboBox1);
         }
 
         private void txtU_KeyPress(object sender, KeyPressEventArgs e)
@@ -78,8 +90,7 @@ namespace KhoaLDQH
 
         private void txtU_Enter(object sender, EventArgs e)
         {
-            txtU.Text = "";
-            txtF.Text = "";
+          //  txtU.Text = "";
         }
 
         private void btnTC_Click(object sender, EventArgs e)
@@ -87,11 +98,12 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtBD);
                 return;
             }
             BaoDong bd = new BaoDong();
-            bd.TapCon(txtU, txtF, txtBD);
-            txtBD.Text += "Tập con: " + bd.TapCon(txtU, txtF, txtBD) + "\r\n\r\n\r\nTập con thực sự < trừ tập con t = U >: " + (bd.TapCon(txtU, txtF, txtBD) - 1) + "\r\n\r\n\r\nTập con thực sự khác rỗng: " + (bd.TapCon(txtU, txtF, txtBD) - 2);
+            bd.TapCon(txtU, txtF, txtBD, comboBox1);
+            txtBD.Text += "Tập con: " + bd.TapCon(txtU, txtF, txtBD, comboBox1) + "\r\n\r\n\r\nTập con thực sự < trừ tập con t = U >: " + (bd.TapCon(txtU, txtF, txtBD, comboBox1) - 1) + "\r\n\r\n\r\nTập con thực sự khác rỗng: " + (bd.TapCon(txtU, txtF, txtBD, comboBox1) - 2);
         }
 
         private void btnMKhoa_Click(object sender, EventArgs e)
@@ -99,6 +111,7 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtKhoa);
                 return;
             }
             TimKhoa tk = new TimKhoa();
@@ -120,6 +133,7 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtKhoa);
                 return;
             }
             TimKhoa tk = new TimKhoa();
@@ -151,10 +165,17 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtPhu);
                 return;
             }
             PhuToiThieu phu = new PhuToiThieu();
             phu.PhuTT(txtU, txtF, txtPhu);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BaoDong bd = new BaoDong();
+            bd.chonComboBox(comboBox1, txtBD, txtU, txtF);
         }
     }
 }

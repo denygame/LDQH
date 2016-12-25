@@ -101,7 +101,7 @@ namespace KhoaLDQH
             return BestChoice(C + B);
         }
 
-        public int Chua(string A, string B)    //A có chứa B không 1 chứa 0 là không chứa
+        public int Chua(string A, string B)    //A có chứa B không? -> 1 chứa, 0 là không chứa
         {
             int dem = 0;
             for (int i = 0; i < B.Length; i++)
@@ -167,7 +167,7 @@ namespace KhoaLDQH
             return 1;
         }
 
-        public void layData(string s, ref int n,TextBox txtU)
+        public void layData(string s, ref int n,TextBox txtU,TextBox txtF)
         {
             if (s == "Ф")
             {
@@ -227,6 +227,19 @@ namespace KhoaLDQH
                 }
                 T = XoaGiong(T);
                 P = XoaGiong(P);
+
+
+                txtF.Text = "";
+
+                for (int i = 0; i <lines.Length;i++)
+                {
+                    if(i==lines.Length-1)
+                    {
+                        txtF.Text += VT[i] + "->" + VP[i];
+                        break;
+                    }
+                    txtF.Text += VT[i] + "->" + VP[i] + ",";
+                }
             }
         }
         

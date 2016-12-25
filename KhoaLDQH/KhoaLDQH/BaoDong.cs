@@ -41,7 +41,7 @@ namespace KhoaLDQH
             return solution.BestChoice(S);
         }
 
-        public void ShowBD(TextBox txtU, TextBox txtF, TextBox txtBD)
+        public void ShowBD(TextBox txtU, TextBox txtF, TextBox txtBD, ComboBox cb)
         {
             txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
             txtU.Text = solution.XoaGiong(txtU.Text);
@@ -75,16 +75,53 @@ namespace KhoaLDQH
                 solution.Phai = "";
 
                 int n = 0;
-                solution.layData(txtF.Text, ref n, txtU);
+                solution.layData(txtF.Text, ref n, txtU,txtF);
 
-                Try_VC(0, txtBD);
+                Try_VC(0);
                 
                 SapXep();
 
                 for (int i = 0; i < listSX.Count; i++)
-                    txtBD.Text += (i + 1) + ".\t  ( " + listSX[i] + " )+  = " + BD(solution.BestChoice(listSX[i]), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + "\r\n\r\n";
-            }
+                {
+                    cb.Items.Add(BD(solution.BestChoice(listSX[i]), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length));
 
+                    txtBD.Text += (i + 1) + ".\t  ( " + listSX[i] + " )+  = " + BD(solution.BestChoice(listSX[i]), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + "\r\n\r\n";
+                }
+            }
+        }
+
+        public void chonComboBox(ComboBox cb, TextBox txtBD, TextBox txtU, TextBox txtF)
+        {
+            list.Clear();
+            listSX.Clear();
+            string t = txtU.Text;
+            //lấy từ ký tự vào mảng
+            mang = new string[t.Length];
+            stt = new int[t.Length];
+
+            for (int i = 0; i < t.Length; i++)
+            {
+                if (i == t.Length - 1)
+                {
+                    mang[i] = t[i].ToString();
+                    break;
+                }
+                mang[i] = t[i].ToString();
+            }
+            solution.Trai = "";
+            solution.Phai = "";
+
+            int n = 0;
+            solution.layData(txtF.Text, ref n, txtU, txtF);
+
+            Try_VC(0);
+            SapXep();
+
+            txtBD.Text = "";
+            txtBD.Text = "R = <U, F>\r\nU = " + txtU.Text + "\r\nF = { " + txtF.Text + " }\r\n======================= BAO ĐÓNG =======================\r\n\r\n";
+
+            txtBD.Text += (cb.SelectedIndex + 1) + ".\t  ( " + listSX[cb.SelectedIndex] + " )+  = " + BD(solution.BestChoice(listSX[cb.SelectedIndex]), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + "\r\n\r\n";
+            
         }
 
         private void SapXep()
@@ -101,7 +138,7 @@ namespace KhoaLDQH
         }
 
 
-        private void Try_VC(int i, TextBox txtBD)
+        private void Try_VC(int i)
         {
             for (int j = 0; j <= 1; j++)
             {
@@ -119,14 +156,14 @@ namespace KhoaLDQH
                         listSX.Add(solution.BestChoice(test));
                     }
                 }
-                else Try_VC(i + 1, txtBD);
+                else Try_VC(i + 1);
             }
         }
 
-        public int TapCon(TextBox txtU,TextBox txtF,TextBox txtBD)
+        public int TapCon(TextBox txtU,TextBox txtF,TextBox txtBD,ComboBox cb)
         {
             listSX.Clear();
-            ShowBD(txtU, txtF, txtBD);
+            ShowBD(txtU, txtF, txtBD, cb);
             txtBD.Text = "";
             txtBD.Text += "R = <U, F>\r\nU = " + txtU.Text + "\r\nF = { " + txtF.Text + " }\r\n======================== TẬP CON ========================\r\n\r\n";
             return (listSX.Count + 1);

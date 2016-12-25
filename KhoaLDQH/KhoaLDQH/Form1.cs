@@ -17,45 +17,8 @@ namespace KhoaLDQH
         {
             InitializeComponent();
         }
-
-   //ctrl mã ascii là 17, delete mã ascii là 8
-        private void txtU_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !((e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar == 32 || e.KeyChar == 8);
-        }
-
-        private void txtF_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !((e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar == 44 || e.KeyChar == 45 || e.KeyChar == 32 || e.KeyChar == 62 || e.KeyChar == 8);
-        }
-
-        private void btnKhoa_Click(object sender, EventArgs e)
-        {
-            if (txtU.Text == "")
-            {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Solution s = new Solution();
-            s.TimKhoa(txtU, txtF, txtKQ);
-        }
-
-        private void txtU_Enter(object sender, EventArgs e)
-        {
-            txtU.Text = "";
-            txtF.Text = "";
-        }
-
-        private void btnBD_Click(object sender, EventArgs e)
-        {
-            if (txtU.Text == "")
-            {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Solution solution = new Solution();
-            solution.BaoDong(txtU, txtF, txtBaoDong);
-        }
+        
+        
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -81,6 +44,56 @@ namespace KhoaLDQH
         private void liênHệToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Nguyễn Thanh Huy\r\n\r\nLiên Hệ: thanhhuy96.gtvt@gmail.com", "Liên Hệ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnBD_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            BaoDong bd = new BaoDong();
+            bd.ShowBD(txtU, txtF, txtBD);
+        }
+
+        private void txtU_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !((e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar == 32 || e.KeyChar == 8);
+        }
+
+        private void txtF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !((e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar == 44 || e.KeyChar == 45 || e.KeyChar == 32 || e.KeyChar == 62 || e.KeyChar == 8);
+        }
+
+        private void txtU_Enter(object sender, EventArgs e)
+        {
+            txtU.Text = "";
+            txtF.Text = "";
+        }
+
+        private void btnTC_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            BaoDong bd = new BaoDong();
+            bd.TapCon(txtU, txtF, txtBD);
+            txtBD.Text += "Tập con: " + bd.TapCon(txtU, txtF, txtBD) + "\r\n\r\n\r\nTập con thực sự < trừ tập con t = U >: " + (bd.TapCon(txtU, txtF, txtBD) - 1) + "\r\n\r\n\r\nTập con thực sự khác rỗng: " + (bd.TapCon(txtU, txtF, txtBD) - 2);
+        }
+
+        private void btnMKhoa_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            TimKhoa tk = new TimKhoa();
+            tk.TimMoiKhoa(txtU, txtF, txtKhoa);
         }
     }
 }

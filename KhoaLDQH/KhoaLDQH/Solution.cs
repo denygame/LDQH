@@ -101,19 +101,23 @@ namespace KhoaLDQH
             return BestChoice(C + B);
         }
 
-        public int Chua(string A, string B)    //A có chứa B không
+        public int Chua(string A, string B)    //A có chứa B không 1 chứa 0 là không chứa
         {
-            int ok = 1;
-            if (A.IndexOf(B) == -1) ok = 0;
-            return ok;
+            int dem = 0;
+            for (int i = 0; i < B.Length; i++)
+            {
+                if (A.IndexOf(B[i]) != -1)
+                    dem++;
+            }
+            if (dem == B.Length) return 1;
+            return 0;
         }
 
         public int check(string s)
         {
-            int demphay = 0, demmten = 0;
-
             if (s == "Ф") return 1;
 
+            int demphay = 0, demmten = 0;
             for (int i = 0; i < s.Length; i++)
             {
                 if (s[i] == ',') demphay++;
@@ -172,16 +176,22 @@ namespace KhoaLDQH
                 VT = new string[t.Length];
                 VP = new string[t.Length];
                 PTH = new string[t.Length];
-
+                
                 for (int i = 0; i < t.Length; i++)
                 {
                     VT[i] = t[i].ToString();
+                    VT[i] = XoaGiong(VT[i]);
                     VP[i] = t[i].ToString();
+                    VP[i] = XoaGiong(VP[i]);
+                    T += t[i].ToString();
+                    P += t[i].ToString();
                 }
+                T = XoaGiong(T);
+                P = XoaGiong(P);
                 return;
             }
 
-            else
+            if(s!= "Ф")
             {
                 using (StreamWriter sw = new StreamWriter("test.txt"))
                 {
@@ -209,18 +219,17 @@ namespace KhoaLDQH
 
                     T += tam[0];
                     VT[i] = tam[0];
+                    VT[i] = XoaGiong(VT[i]);
 
                     P += tam[1];
                     VP[i] = tam[1];
+                    VP[i] = XoaGiong(VP[i]);
                 }
                 T = XoaGiong(T);
                 P = XoaGiong(P);
             }
         }
-
         
-
-
     }
 }
 

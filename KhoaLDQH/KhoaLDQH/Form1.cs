@@ -17,8 +17,17 @@ namespace KhoaLDQH
         {
             InitializeComponent();
         }
-        
-        
+
+        private void Save(string KQ)
+        {
+            SaveFileDialog a = new SaveFileDialog();
+            a.Filter = "TXT file|*.txt";
+            DialogResult test = a.ShowDialog();
+
+            if (test == DialogResult.OK)
+                using (StreamWriter sw = new StreamWriter(a.FileName))
+                    sw.WriteLine(KQ);
+        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -94,6 +103,58 @@ namespace KhoaLDQH
             }
             TimKhoa tk = new TimKhoa();
             tk.TimMoiKhoa(txtU, txtF, txtKhoa);
+        }
+
+        private void btnSaveBD_Click(object sender, EventArgs e)
+        {
+            if (txtBD.Text == "")
+            {
+                MessageBox.Show("Không có dữ liệu để lưu!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Save(txtBD.Text);
+        }
+
+        private void btn1Khoa_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            TimKhoa tk = new TimKhoa();
+            tk.Tim1Khoa(txtU, txtF, txtKhoa);
+        }
+
+        private void btnSaveKhoa_Click(object sender, EventArgs e)
+        {
+            if (txtKhoa.Text == "")
+            {
+                MessageBox.Show("Không có dữ liệu để lưu!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Save(txtKhoa.Text);
+        }
+
+        private void btnSavePhu_Click(object sender, EventArgs e)
+        {
+            if (txtPhu.Text == "")
+            {
+                MessageBox.Show("Không có dữ liệu để lưu!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Save(txtPhu.Text);
+        }
+
+        private void btnPhu_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            PhuToiThieu phu = new PhuToiThieu();
+            phu.PhuTT(txtU, txtF, txtPhu);
         }
     }
 }

@@ -13,7 +13,8 @@ namespace KhoaLDQH
         private int[] stt;
         private List<string> list = new List<string>();
         private List<string> TapConTg = new List<string>();
-        
+        private List<string> listSieuKhoa = new List<string>();
+        private List<string> listKhoa = new List<string>();
 
         Solution solution = new Solution();
         BaoDong baodong = new BaoDong();
@@ -21,7 +22,7 @@ namespace KhoaLDQH
         public TimKhoa() { }
 
 
-
+        #region TìmMọiKhóa
         public void TimMoiKhoa(TextBox txtU, TextBox txtF, TextBox txtKhoa)
         {
             txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
@@ -34,6 +35,7 @@ namespace KhoaLDQH
 
             txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
             txtKhoa.Text = "";
+
 
             if (solution.check(txtF.Text) == 1)
             {
@@ -55,7 +57,7 @@ namespace KhoaLDQH
 
                 txtKhoa.Text += "◊◊ Bước 2: Kiểm tra tập thuộc tính nguồn TN \r\n";
                 if (TG == "Ф")
-                    txtKhoa.Text += "\tTG rỗng => "+"Lược đồ quan hệ chỉ có một khóa: K = TN =" + TN;
+                    txtKhoa.Text += "\tTG rỗng => "+"Lược đồ quan hệ chỉ có một khóa: K = TN = " + TN;
                 else
                 {
                     txtKhoa.Text += "\tTG không rỗng. Thực hiện bước 3\r\n\r\n";
@@ -75,19 +77,11 @@ namespace KhoaLDQH
 
                     txtKhoa.Text += "◊◊ Bước 5:  Tìm khóa bằng cách loại bỏ các siêu khóa không tối thiểu\r\n";
                     LoaiBoSieuKhoa(txtKhoa);
-
-                    //string s = "AB";
-                    //txtKhoa.Text += solution.Tru(ref s, "ABC");
                 }
 
             }
         }
-
-
-
-
-
-
+        
 
         #region B3SinhTapConTG
         private void SinhTapConTG(string TG)
@@ -132,7 +126,7 @@ namespace KhoaLDQH
         }
         #endregion
 
-
+        #region B4B5SieuKhoaVaKhoa
         private void TimSieuKhoa(string TN, TextBox txtKhoa,TextBox txtU)
         {
             //hợp lại
@@ -144,13 +138,16 @@ namespace KhoaLDQH
                 if (i == TapConTg.Count - 1) { txtKhoa.Text += TapConTg[i] + " }\r\n\r\n"; break; }
                 txtKhoa.Text += TapConTg[i] + ", ";
             }
-
+            
             //tìm bao đóng
             int[] mangxoa = new int[TapConTg.Count];
+            
             txtKhoa.Text += "\t=> Tìm bao đóng:\r\n\r\n";
             for (int i = 0; i < TapConTg.Count; i++)
             {
                 txtKhoa.Text += "\t+Bao đóng của { " + TapConTg[i] + " } là: ( " + TapConTg[i] + " )+  = " + baodong.BD(TapConTg[i], solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length);
+                
+
                 if (baodong.BD(TapConTg[i], solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) == txtU.Text)
                     txtKhoa.Text += " => là siêu khóa\r\n";
                 else
@@ -159,60 +156,109 @@ namespace KhoaLDQH
                     mangxoa[i] = 1;
                 }
             }
-            //xóa không phải siêu khóa
+            
+            //xóa không phải siêu khóa -> add vào lishSieuKhoa
             for (int i = 0; i < TapConTg.Count; i++)
-                if (mangxoa[i] == 1) TapConTg.Remove(TapConTg[i]);
-
+                if (mangxoa[i] == 0)
+                    listSieuKhoa.Add(TapConTg[i]);
+            
             //in ra
             txtKhoa.Text += "\r\n==> Vậy, tập các siêu khóa là: S = { ";
-            for (int i = 0; i < TapConTg.Count; i++)
+            for (int i = 0; i < listSieuKhoa.Count; i++)
             {
-                if (i == TapConTg.Count - 1) { txtKhoa.Text += TapConTg[i] + " }\r\n\r\n"; break; }
-                txtKhoa.Text += TapConTg[i] + ", ";
+                if (i == listSieuKhoa.Count - 1) { txtKhoa.Text += listSieuKhoa[i] + " }\r\n\r\n"; break; }
+                txtKhoa.Text += listSieuKhoa[i] + ", ";
             }
         }
+
+
 
         private void LoaiBoSieuKhoa(TextBox txtKhoa)
         {
             //sắp xếp theo độ dài ký tự
-            for (int i = 0; i < TapConTg.Count; i++)
-                for (int j = i + 1; j < TapConTg.Count; j++)
-                    if (TapConTg[i].Length >= TapConTg[j].Length)
+            for (int i = 0; i < listSieuKhoa.Count; i++)
+                for (int j = i + 1; j < listSieuKhoa.Count; j++)
+                    if (listSieuKhoa[i].Length >= listSieuKhoa[j].Length)
                     {
-                        string temp = TapConTg[i];
-                        TapConTg[i] = TapConTg[j];
-                        TapConTg[j] = temp;
+                        string temp = listSieuKhoa[i];
+                        listSieuKhoa[i] = listSieuKhoa[j];
+                        listSieuKhoa[j] = temp;
                     }
 
             del();
             txtKhoa.Text += "\r\n==> Vậy, tập các khóa của lược đồ là: K = { ";
-            for (int i = 0; i < TapConTg.Count; i++)
+            for (int i = 0; i < listKhoa.Count; i++)
             {
-                if (i == TapConTg.Count - 1) { txtKhoa.Text += TapConTg[i] + " }\r\n\r\n"; break; }
-                txtKhoa.Text += TapConTg[i] + ", ";
+                if (i == listKhoa.Count - 1) { txtKhoa.Text += listKhoa[i] + " }\r\n\r\n"; break; }
+                txtKhoa.Text += listKhoa[i] + ", ";
             }
 
         }
-
-
-
-        /// <summary>
-        /// xem lại
-        /// </summary>
+        
         private void del()    
         {
-            int[] mangxoa = new int[TapConTg.Count];
-            for (int i = 0; i < TapConTg.Count; i++)
-                for (int j = 0; j < TapConTg.Count; j++)
+            int[] mangxoa = new int[listSieuKhoa.Count];
+            for (int i = 0; i < listSieuKhoa.Count; i++)
+                for (int j = i + 1; j < listSieuKhoa.Count; j++)
                 {
-                    string s = TapConTg[i];
-                    if (solution.Tru(ref s, TapConTg[j]) == "Ф")
+                    string s = listSieuKhoa[i];
+                    if (solution.Tru(ref s, listSieuKhoa[j]) == "Ф")
                         mangxoa[j] = 1;
                 }
 
-            for (int i = 0; i < TapConTg.Count; i++)
-                if (mangxoa[i] == 1) TapConTg.Remove(TapConTg[i]);
+
+            for (int i = 0; i < listSieuKhoa.Count; i++)
+                if (mangxoa[i] == 0)
+                    listKhoa.Add(listSieuKhoa[i]);
         }
-        
+        #endregion
+
+        #endregion
+
+
+        public void Tim1Khoa(TextBox txtU, TextBox txtF, TextBox txtKhoa)
+        {
+            txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
+            txtU.Text = solution.XoaGiong(txtU.Text);
+
+            string t = txtU.Text;
+
+            if (txtF.Text == "") txtF.Text += "Ф";
+
+
+            txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
+            txtKhoa.Text = "";
+
+            if (solution.check(txtF.Text) == 1)
+            {
+                txtKhoa.Text = "R = <U, F>\r\nU = " + txtU.Text + "\r\nF = { " + txtF.Text + " }\r\n======================== MỘT KHÓA =======================\r\n\r\n";
+
+                solution.Trai = "";
+                solution.Phai = "";
+
+                int n = 0;
+                solution.layData(txtF.Text, ref n, txtU);
+
+                string K = txtU.Text;
+                string tam = K;
+                char[] mangKyTu = K.ToCharArray(0, K.Length);
+
+                txtKhoa.Text += "◊◊ Bước 1: K = U = " + K + " \r\n\r\n";
+                
+                for(int i=0;i<mangKyTu.Length;i++)
+                {
+                    string k = solution.Tru(ref tam, mangKyTu[i].ToString());
+                    txtKhoa.Text += "◊◊ Bước " + (i + 2) + ": ( K - " + mangKyTu[i] + " )+  = " + " ( " + k + " )+  =  " + baodong.BD(k, solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length);
+                    if (baodong.BD(k, solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) == txtU.Text)
+                    {
+                        K = solution.Tru(ref K, mangKyTu[i].ToString());
+                        txtKhoa.Text += " = U, loại " + mangKyTu[i] + " ra khỏi K => K = " + K + "\r\n";
+                    }
+                    else txtKhoa.Text += "  != U => K = " + K + "\r\n";
+                    tam = K;
+                }
+                txtKhoa.Text += "\r\n\r\nVậy, một khóa của lược đồ quan hệ là: K = " + K;
+            }
+        }
     }
 }

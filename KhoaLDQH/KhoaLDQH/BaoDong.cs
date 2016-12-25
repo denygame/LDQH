@@ -35,15 +35,7 @@ namespace KhoaLDQH
         {
             for (int i = 0; i < n; i++)
             {
-                string tam = VT[i];
-                int ok = 1;
-
-                //IndexOf() là một phương thức thuộc lớp String(class string) được sử                              dụng để xác định vị trí của một chuỗi trong một chuỗi khác, đầu tiên thôi.
-                //tam không có trong S thì ok = 0
-                if (S.IndexOf(tam) == -1)
-                    ok = 0;
-
-                if (ok != 0)
+                if (solution.Chua(S,VT[i]) == 1)
                     S = solution.Hop(S, VP[i]);
             }
             return solution.BestChoice(S);

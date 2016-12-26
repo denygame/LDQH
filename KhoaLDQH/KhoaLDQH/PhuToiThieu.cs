@@ -17,6 +17,9 @@ namespace KhoaLDQH
         private List<string> listKQVT = new List<string>();
         private List<string> listKQVP = new List<string>();
 
+        private List<string> listVTsauBuoc2 = new List<string>();
+        private List<string> listVPsauBuoc2 = new List<string>();
+
 
         public void PhuTT(TextBox txtU, TextBox txtF, TextBox txtPhu)
         {
@@ -66,8 +69,12 @@ namespace KhoaLDQH
                 txtPhu.Text += "\r\n\r\n◊◊ Bước 2: Loại bỏ các thuộc tính dư thừa bên phía trái của mỗi phụ thuộc hàm\r\n";
 
 
-                string[] vp = listVP.ToArray();
-                string[] vt = listVT.ToArray();
+                string[] vpsauBuoc1 = listVP.ToArray();
+                string[] vtsauBuoc1 = listVT.ToArray();
+
+
+                listVTsauBuoc2 = listVT;
+                listVPsauBuoc2 = listVP;
 
                 ///phụ thuộc hàm có vế trái dư thừa
                 for (int i = 0; i < listVP.Count; i++)
@@ -75,53 +82,65 @@ namespace KhoaLDQH
                     if (listVT[i].Length != 1)
                     {
                         txtPhu.Text += "\r\n\t + Xét PTH: " + listVT[i] + " -> " + listVP[i] + "\r\n";
-                        LoaiDuThua(listVT[i], txtPhu, listVP[i], vt, vp, i);
-
-                        txtPhu.Text += "\r\n® Kết quả: F = {";
-                        for (int p = 0; p < listVT.Count; p++)
-                        {
-                            if (p == listVT.Count - 1)
-                            {
-                                txtPhu.Text += listVT[p] + "->" + listVP[p] + "}\r\n";
-                                break;
-                            }
-                            txtPhu.Text += listVT[p] + "->" + listVP[p] + ",";
-                        }
+                        LoaiDuThua(listVT[i], txtPhu, listVP[i], vtsauBuoc1, vpsauBuoc1, i);
                     }
                 }
+                txtPhu.Text += "\r\n® Kết quả: F = {";
+                for (int p = 0; p < listVTsauBuoc2.Count; p++)
+                {
+                    if (p == listVTsauBuoc2.Count - 1)
+                    {
+                        txtPhu.Text += listVTsauBuoc2[p] + "->" + listVPsauBuoc2[p] + "}\r\n";
+                        break;
+                    }
+                    txtPhu.Text += listVTsauBuoc2[p] + "->" + listVPsauBuoc2[p] + ",";
+                }
+
+
+
+
+                string[] vtsauBuoc2 = listVTsauBuoc2.ToArray();
+                string[] vpsauBuoc2 = listVPsauBuoc2.ToArray();
 
                 txtPhu.Text += "\r\n\r\n◊◊ Bước 3: Loại bỏ các phụ thuộc hàm dư thừa\r\n";
                 txtPhu.Text += "\r\nF = {";
-                for (int p = 0; p < listVT.Count; p++)
+                for (int p = 0; p < listVTsauBuoc2.Count; p++)
                 {
-                    if (p == listVT.Count - 1)
+                    if (p == listVTsauBuoc2.Count - 1)
                     {
-                        txtPhu.Text += listVT[p] + "->" + listVP[p] + "}\r\n\r\n";
+                        txtPhu.Text += listVTsauBuoc2[p] + "->" + listVPsauBuoc2[p] + "}\r\n\r\n";
                         break;
                     }
-                    txtPhu.Text += listVT[p] + "->" + listVP[p] + ",";
+                    txtPhu.Text += listVTsauBuoc2[p] + "->" + listVPsauBuoc2[p] + ",";
                 }
                 
-                LoaiPTHDuThua(txtPhu, vt, vp);
+                LoaiPTHDuThua(txtPhu, vtsauBuoc2, vpsauBuoc2);
             }
         }
 
 
         #region Buoc2LoaiTTduthuavetrai
-        private void LoaiDuThua(string veTrai, TextBox txtPhu, string vePhai, string[] vt, string[] vp, int id)
+        private void LoaiDuThua(string veTrai, TextBox txtPhu, string vePhai, string[] vtsauBuoc1, string[] vpsauBuoc1, int id)
         {
             for (int i = 0; i < veTrai.Length; i++)
             {
-                txtPhu.Text += "• Loại " + veTrai[i] + ":  Ta có (" + PhanTuConLai(veTrai, veTrai[i].ToString()) + ")+  = {" + baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vt, vp, vt.Length) + "}";
-                if (solution.Chua(baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vt, vp, vt.Length), veTrai[i].ToString()) == 1)
+                txtPhu.Text += "• Loại " + veTrai[i] + ":  Ta có (" + PhanTuConLai(veTrai, veTrai[i].ToString()) + ")+  = {" + baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vtsauBuoc1, vpsauBuoc1, vtsauBuoc1.Length) + "}";
+                if (solution.Chua(baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vtsauBuoc1, vpsauBuoc1, vtsauBuoc1.Length), veTrai[i].ToString()) == 1)
                 {
                     txtPhu.Text += " chứa " + veTrai[i].ToString() + " => " + veTrai[i].ToString() + " dư thừa\r\n";
                     string tam = veTrai;
-                    listVT[id] = solution.Tru(ref tam, veTrai[i].ToString());
+                    listVTsauBuoc2.Add(solution.Tru(ref tam, veTrai[i].ToString()));
+                    listVPsauBuoc2.Add(vePhai);
+
+                    listVTsauBuoc2.Remove(veTrai);
+                    listVPsauBuoc2.Remove(vePhai);
+
+                    txtPhu.Text += "\t=> " + veTrai + "->" + vePhai + " trở thành: " + solution.Tru(ref tam, veTrai[i].ToString()) + "->" + vePhai + "\r\n";
                 }
                 else
                 {
                     txtPhu.Text += " không chứa " + veTrai[i].ToString() + " => " + veTrai[i].ToString() + " không dư thừa\r\n";
+                    
                 }
             }
         }
@@ -151,41 +170,41 @@ namespace KhoaLDQH
         }
 
 
-        private void LoaiPTHDuThua(TextBox txtPhu, string[] vt, string[] vp)
+        private void LoaiPTHDuThua(TextBox txtPhu, string[] vtsauBuoc2, string[] vpsauBuoc2)
         {
-            string[] veTraibandau = listVT.ToArray();
-            string[] vePhaibandau = listVP.ToArray();
+            string[] veTraibandau = listVTsauBuoc2.ToArray();
+            string[] vePhaibandau = listVPsauBuoc2.ToArray();
 
-            for (int i = 0; i < listVT.Count; i++)
+            for (int i = 0; i < listVTsauBuoc2.Count; i++)
             {
-                txtPhu.Text += "• Thử loại bỏ " + listVT[i] + "->" + listVP[i] + ":\r\n";
+                txtPhu.Text += "• Thử loại bỏ " + listVTsauBuoc2[i] + "->" + listVPsauBuoc2[i] + ":\r\n";
 
                 //reset mảng
-                vt = veTraibandau;
-                vp = vePhaibandau;
+                vtsauBuoc2 = veTraibandau;
+                vpsauBuoc2 = vePhaibandau;
 
                 //doi cho pth dang xet xuong cuoi cung
-                for (int j = 0; j < vt.Length; j++)
-                    if (vt[j] == listVT[i] && vp[j] == listVP[i])
+                for (int j = 0; j < vtsauBuoc2.Length; j++)
+                    if (vtsauBuoc2[j] == listVTsauBuoc2[i] && vpsauBuoc2[j] == listVPsauBuoc2[i])
                     {
-                        doiChoxuongCuoi(vt, j);
-                        doiChoxuongCuoi(vp, j);
+                        doiChoxuongCuoi(vtsauBuoc2, j);
+                        doiChoxuongCuoi(vpsauBuoc2, j);
                     }
 
                 //tính bao đóng phải trừ vị trí cuối cùng ra, đó là PTH đang xét gỡ bỏ
-                txtPhu.Text += "\tTa có: (" + listVT[i] + ")+  = " + baodong.BD(listVT[i], vt, vp, vt.Length - 1);
-                if (solution.Chua(baodong.BD(listVT[i], vt, vp, vt.Length - 1), listVP[i]) == 1)
+                txtPhu.Text += "\tTa có: (" + listVTsauBuoc2[i] + ")+  = " + baodong.BD(listVTsauBuoc2[i], vtsauBuoc2, vpsauBuoc2, vtsauBuoc2.Length - 1);
+                if (solution.Chua(baodong.BD(listVTsauBuoc2[i], vtsauBuoc2, vpsauBuoc2, vtsauBuoc2.Length - 1), listVPsauBuoc2[i]) == 1)
                 {
-                    txtPhu.Text += " chứa " + listVP[i] + " nên " + listVT[i] + "->" + listVP[i] + " dư thừa\r\n";
-                    txtPhu.Text += "\t==> Loại bỏ PTH: " + listVT[i] + "->" + listVP[i] + "\r\n\r\n";
+                    txtPhu.Text += " chứa " + listVPsauBuoc2[i] + " nên " + listVTsauBuoc2[i] + "->" + listVPsauBuoc2[i] + " dư thừa\r\n";
+                    txtPhu.Text += "\t==> Loại bỏ PTH: " + listVTsauBuoc2[i] + "->" + listVPsauBuoc2[i] + "\r\n\r\n";
                 }
                 else
                 {
-                    txtPhu.Text += " không chứa " + listVP[i] + " nên " + listVT[i] + "->" + listVP[i] + " không dư thừa\r\n";
-                    txtPhu.Text += "\t==> Không thể loại PTH: " + listVT[i] + "->" + listVP[i] + "\r\n\r\n";
+                    txtPhu.Text += " không chứa " + listVPsauBuoc2[i] + " nên " + listVTsauBuoc2[i] + "->" + listVPsauBuoc2[i] + " không dư thừa\r\n";
+                    txtPhu.Text += "\t==> Không thể loại PTH: " + listVTsauBuoc2[i] + "->" + listVPsauBuoc2[i] + "\r\n\r\n";
                     //add vào kết quả
-                    listKQVT.Add(listVT[i]);
-                    listKQVP.Add(listVP[i]);
+                    listKQVT.Add(listVTsauBuoc2[i]);
+                    listKQVP.Add(listVPsauBuoc2[i]);
                 }
 
             }

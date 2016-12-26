@@ -10,9 +10,3 @@ E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.pdb
 C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.exe.config
 C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.exe
 C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.pdb
-C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.exe
-C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\bin\Debug\KhoaLDQH.pdb
-C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.csprojResolveAssemblyReference.cache
-C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Form1.resources
-C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Properties.Resources.resources
-C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.csproj.GenerateResource.Cache

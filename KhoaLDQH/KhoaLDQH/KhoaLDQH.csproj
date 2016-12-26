@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaoDong.cs" />
+    <Compile Include="DangChuan.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

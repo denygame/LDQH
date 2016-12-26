@@ -260,5 +260,89 @@ namespace KhoaLDQH
                 txtKhoa.Text += "\r\n\r\nVậy, một khóa của lược đồ quan hệ là: K = " + K;
             }
         }
+
+
+
+   //hàm này add khóa vào list trong khi gọi, dùng cho bên dạng chuẩn
+        public void GuiTapKhoaChoDC(TextBox txtU, TextBox txtF,List<string> listLayquaDC)
+        {
+            string t = txtU.Text;
+            if (solution.check(txtF.Text) == 1)
+            {
+                solution.Trai = "";
+                solution.Phai = "";
+
+                int n = 0;
+                solution.layData(txtF.Text, ref n, txtU, txtF);
+
+                string tam = txtU.Text;
+                string TN = solution.Tru(ref tam, solution.Phai);
+                string TG = solution.Giao(solution.Trai, solution.Phai);
+
+                if (TG == "Ф")
+                {
+                    listLayquaDC.Add(TN);
+                    return;
+                }
+                else
+                {
+                    SinhTapConTG(TG);
+                    
+   //TimSieuKhoa(TN, txtKhoa, txtU);
+                    for (int i = 0; i < TapConTg.Count; i++)
+                        TapConTg[i] = solution.Hop(TapConTg[i], TN);
+                    int[] mangxoa = new int[TapConTg.Count];
+
+
+                    for (int i = 0; i < TapConTg.Count; i++)
+                    {
+                        if (baodong.BD(TapConTg[i], solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) == txtU.Text)
+                            mangxoa[i] = 0;
+                        else mangxoa[i] = 1;
+                    }
+
+                    //xóa không phải siêu khóa -> add vào listSieuKhoa
+                    for (int i = 0; i < TapConTg.Count; i++)
+                        if (mangxoa[i] == 0)
+                            listSieuKhoa.Add(TapConTg[i]);
+
+
+    //LoaiBoSieuKhoa(txtKhoa);
+                    //sắp xếp theo độ dài ký tự
+                    for (int i = 0; i < listSieuKhoa.Count; i++)
+                        for (int j = i + 1; j < listSieuKhoa.Count; j++)
+                            if (listSieuKhoa[i].Length >= listSieuKhoa[j].Length)
+                            {
+                                string temp = listSieuKhoa[i];
+                                listSieuKhoa[i] = listSieuKhoa[j];
+                                listSieuKhoa[j] = temp;
+                            }
+
+               //del()     
+                    int[] mangxoa1 = new int[listSieuKhoa.Count];
+                    for (int i = 0; i < listSieuKhoa.Count; i++)
+                        for (int j = i + 1; j < listSieuKhoa.Count; j++)
+                        {
+                            string s = listSieuKhoa[i];
+                            if (solution.Tru(ref s, listSieuKhoa[j]) == "Ф")
+                                mangxoa1[j] = 1;
+                        }
+                    for (int i = 0; i < listSieuKhoa.Count; i++)
+                        if (mangxoa1[i] == 0)
+                            listLayquaDC.Add(listSieuKhoa[i]);
+
+
+                }
+
+
+            }
+
+
+
+
+
+
+        }
+
     }
 }

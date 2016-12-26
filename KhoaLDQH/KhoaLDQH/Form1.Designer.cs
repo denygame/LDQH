@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnMuiTen = new System.Windows.Forms.Button();
             this.txtF = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabBD = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSaveBD = new System.Windows.Forms.Button();
             this.btnTC = new System.Windows.Forms.Button();
             this.btnBD = new System.Windows.Forms.Button();
@@ -56,7 +58,14 @@
             this.btnPhu = new System.Windows.Forms.Button();
             this.btnSavePhu = new System.Windows.Forms.Button();
             this.txtPhu = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tabDangChuan = new System.Windows.Forms.TabPage();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.btnDC3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnBC = new System.Windows.Forms.Button();
+            this.txtDC = new System.Windows.Forms.TextBox();
+            this.btnDC2 = new System.Windows.Forms.Button();
+            this.btnXDchuan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +87,11 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            this.tabDangChuan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -197,6 +211,7 @@
             this.tabControl1.Controls.Add(this.tabBD);
             this.tabControl1.Controls.Add(this.tabKhoa);
             this.tabControl1.Controls.Add(this.tabPhu);
+            this.tabControl1.Controls.Add(this.tabDangChuan);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
@@ -236,6 +251,19 @@
             this.splitContainer2.Size = new System.Drawing.Size(672, 348);
             this.splitContainer2.SplitterDistance = 124;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownHeight = 100;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.Location = new System.Drawing.Point(13, 68);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(99, 23);
+            this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnSaveBD
             // 
@@ -450,18 +478,123 @@
             this.txtPhu.Size = new System.Drawing.Size(538, 342);
             this.txtPhu.TabIndex = 0;
             // 
-            // comboBox1
+            // tabDangChuan
             // 
-            this.comboBox1.DropDownHeight = 100;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Location = new System.Drawing.Point(13, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(99, 23);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.tabDangChuan.Controls.Add(this.splitContainer5);
+            this.tabDangChuan.Location = new System.Drawing.Point(4, 22);
+            this.tabDangChuan.Name = "tabDangChuan";
+            this.tabDangChuan.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDangChuan.Size = new System.Drawing.Size(678, 354);
+            this.tabDangChuan.TabIndex = 6;
+            this.tabDangChuan.Text = "Dạng Chuẩn";
+            this.tabDangChuan.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer5.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer5.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.BackColor = System.Drawing.Color.LightGray;
+            this.splitContainer5.Panel1.Controls.Add(this.btnXDchuan);
+            this.splitContainer5.Panel1.Controls.Add(this.btnDC2);
+            this.splitContainer5.Panel1.Controls.Add(this.btnDC3);
+            this.splitContainer5.Panel1.Controls.Add(this.button2);
+            this.splitContainer5.Panel1.Controls.Add(this.btnBC);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.txtDC);
+            this.splitContainer5.Size = new System.Drawing.Size(672, 348);
+            this.splitContainer5.SplitterDistance = 124;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // btnDC3
+            // 
+            this.btnDC3.BackColor = System.Drawing.Color.Black;
+            this.btnDC3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDC3.ForeColor = System.Drawing.Color.Red;
+            this.btnDC3.Location = new System.Drawing.Point(29, 56);
+            this.btnDC3.Name = "btnDC3";
+            this.btnDC3.Size = new System.Drawing.Size(62, 26);
+            this.btnDC3.TabIndex = 3;
+            this.btnDC3.Text = "DC 3";
+            this.btnDC3.UseVisualStyleBackColor = false;
+            this.btnDC3.Click += new System.EventHandler(this.btnDC3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(18, 290);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 27);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Lưu KQ";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnBC
+            // 
+            this.btnBC.BackColor = System.Drawing.Color.Black;
+            this.btnBC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBC.ForeColor = System.Drawing.Color.Red;
+            this.btnBC.Location = new System.Drawing.Point(29, 15);
+            this.btnBC.Name = "btnBC";
+            this.btnBC.Size = new System.Drawing.Size(62, 26);
+            this.btnBC.TabIndex = 0;
+            this.btnBC.Text = "DC BC";
+            this.btnBC.UseVisualStyleBackColor = false;
+            this.btnBC.Click += new System.EventHandler(this.btnBC_Click);
+            // 
+            // txtDC
+            // 
+            this.txtDC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDC.Location = new System.Drawing.Point(3, 3);
+            this.txtDC.Multiline = true;
+            this.txtDC.Name = "txtDC";
+            this.txtDC.ReadOnly = true;
+            this.txtDC.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDC.Size = new System.Drawing.Size(538, 342);
+            this.txtDC.TabIndex = 0;
+            // 
+            // btnDC2
+            // 
+            this.btnDC2.BackColor = System.Drawing.Color.Black;
+            this.btnDC2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDC2.ForeColor = System.Drawing.Color.Red;
+            this.btnDC2.Location = new System.Drawing.Point(29, 98);
+            this.btnDC2.Name = "btnDC2";
+            this.btnDC2.Size = new System.Drawing.Size(62, 26);
+            this.btnDC2.TabIndex = 4;
+            this.btnDC2.Text = "DC 2";
+            this.btnDC2.UseVisualStyleBackColor = false;
+            this.btnDC2.Click += new System.EventHandler(this.btnDC2_Click);
+            // 
+            // btnXDchuan
+            // 
+            this.btnXDchuan.BackColor = System.Drawing.Color.Black;
+            this.btnXDchuan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXDchuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXDchuan.ForeColor = System.Drawing.Color.Red;
+            this.btnXDchuan.Location = new System.Drawing.Point(3, 157);
+            this.btnXDchuan.Name = "btnXDchuan";
+            this.btnXDchuan.Size = new System.Drawing.Size(118, 26);
+            this.btnXDchuan.TabIndex = 5;
+            this.btnXDchuan.Text = "Xác định chuẩn";
+            this.btnXDchuan.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -470,6 +603,7 @@
             this.ClientSize = new System.Drawing.Size(692, 522);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -502,6 +636,12 @@
             this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            this.tabDangChuan.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            this.splitContainer5.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -537,5 +677,13 @@
         private System.Windows.Forms.TextBox txtPhu;
         private System.Windows.Forms.Button btnPhu;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TabPage tabDangChuan;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Button btnXDchuan;
+        private System.Windows.Forms.Button btnDC2;
+        private System.Windows.Forms.Button btnDC3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBC;
+        private System.Windows.Forms.TextBox txtDC;
     }
 }

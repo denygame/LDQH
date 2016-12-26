@@ -177,5 +177,51 @@ namespace KhoaLDQH
             BaoDong bd = new BaoDong();
             bd.chonComboBox(comboBox1, txtBD, txtU, txtF);
         }
+
+        private void btnDC2_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtPhu);
+                return;
+            }
+            DangChuan dc = new DangChuan();
+            dc.XacdinhChuan2(txtDC, txtU, txtF);
+        }
+
+        private void btnDC3_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtPhu);
+                return;
+            }
+            DangChuan dc = new DangChuan();
+            dc.XacdinhChuan3(txtDC, txtU, txtF);
+        }
+
+        private void btnBC_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtPhu);
+                return;
+            }
+            DangChuan dc = new DangChuan();
+            dc.XacdinhChuanBC(txtDC, txtU, txtF);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtDC.Text == "")
+            {
+                MessageBox.Show("Không có dữ liệu để lưu!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Save(txtDC.Text);
+        }
     }
 }

@@ -83,7 +83,7 @@ namespace KhoaLDQH
 
                 for (int i = 0; i < listSX.Count; i++)
                 {
-                    cb.Items.Add(BD(solution.BestChoice(listSX[i]), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length));
+                    cb.Items.Add(listSX[i]);
 
                     txtBD.Text += (i + 1) + ".\t  ( " + listSX[i] + " )+  = " + BD(solution.BestChoice(listSX[i]), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + "\r\n\r\n";
                 }

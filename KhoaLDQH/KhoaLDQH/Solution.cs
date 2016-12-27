@@ -116,6 +116,17 @@ namespace KhoaLDQH
         public int check(string s)
         {
             if (s == "Ф") return 1;
+            string tam = "0123456789!@#$%^&*()_+/=|{}[]?<.';:";
+            tam.ToCharArray();
+
+            for(int i=0;i<s.Length;i++)
+                for(int j=0;j<tam.Length;j++)
+                    if(s[i]==tam[j])
+                    {
+                        MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return 0;
+                    }
+
 
             int demphay = 0, demmten = 0;
             for (int i = 0; i < s.Length; i++)
@@ -126,42 +137,42 @@ namespace KhoaLDQH
                 if (s[i] == '-' && s[i + 1] != '>')
                 {
                     demphay = 0; demmten = 0;
-                    MessageBox.Show("Không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return 0;
                 }
 
                 if (i == 0 && (s[i] < 65 || s[i] > 90))
                 {
                     demphay = 0; demmten = 0;
-                    MessageBox.Show("Giá trị của F nhập sai!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return 0;
                 }
 
                 if (s[i] == ',' && (s[i + 1] < 65 || s[i + 1] > 90))
                 {
                     demphay = 0; demmten = 0;
-                    MessageBox.Show("Giá trị của F nhập sai!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return 0;
                 }
 
                 if (s[i] == '>' && i != s.Length - 1 && (s[i + 1] < 65 || s[i + 1] > 90))
                 {
                     demphay = 0; demmten = 0;
-                    MessageBox.Show("Giá trị của F nhập sai!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return 0;
                 }
 
                 if (i == (s.Length - 1) && s[i] == '>')
                 {
                     demphay = 0; demmten = 0;
-                    MessageBox.Show("Giá trị của F nhập sai!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return 0;
                 }
             }
 
             if (demmten != demphay + 1)
             {
-                MessageBox.Show("Chưa nhập chính xác phụ thuộc hàm!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
             return 1;

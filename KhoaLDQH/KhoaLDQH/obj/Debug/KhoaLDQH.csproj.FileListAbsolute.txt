@@ -16,3 +16,10 @@ C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.csprojReso
 C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Form1.resources
 C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Properties.Resources.resources
 C:\Users\thanh\Source\Repos\LDQH\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.csproj.GenerateResource.Cache
+E:\KhoaLDQH\KhoaLDQH\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Form2.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Form3.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.HDSD.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.VEPM.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.VETG.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.Armstrong.resources

@@ -91,16 +91,11 @@ namespace KhoaLDQH
             stt = new int[TG.Length];
 
             for (int i = 0; i < TG.Length; i++)
-            {
-                if (i == TG.Length - 1)
-                {
-                    mang[i] = TG[i].ToString();
-                    break;
-                }
                 mang[i] = TG[i].ToString();
-            }
+
             Try_VC(0);
         }
+
         private void Try_VC(int i)
         {
             for (int j = 0; j <= 1; j++)

@@ -13,10 +13,25 @@ namespace KhoaLDQH
 {
     public partial class Form1 : Form
     {
-        private void Reset(TextBox txttest)
+        public int checkU(TextBox txtU)
+        {
+            string tam = "0123456789!@#$%^&*()_+/-=|{}[]?><.';,:";
+            tam.ToCharArray();
+            string s = txtU.Text;
+            for (int i = 0; i < s.Length; i++)
+                for (int j = 0; j < tam.Length; j++)
+                    if (s[i] == tam[j])
+                    {
+                        MessageBox.Show("Nhập U không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return 0;
+                    }
+            return 1;
+        }
+
+
+        public void Reset(TextBox txttest)
         {
             txttest.Text = "";
-            txtF.Text = "";
             if (txttest == txtBD)
                 comboBox1.Items.Clear();
             
@@ -57,63 +72,67 @@ namespace KhoaLDQH
 
         private void hướngDẫnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Nhập các thuộc tính theo dạng U = abc (có thể viết hoa)!\r\nNhập phụ thuộc hàm F theo dạng F = A->B,C->A (có thể viết thường)!", "Hướng dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            HDSD hd = new HDSD();
+            hd.ShowDialog();
         }
-
-        private void liênHệToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Nguyễn Thanh Huy\r\n\r\nLiên Hệ: thanhhuy96.gtvt@gmail.com", "Liên Hệ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        
 
         private void btnBD_Click(object sender, EventArgs e)
         {
+            comboBox1.Enabled = true;
             comboBox1.Items.Clear();
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtBD);
                 return;
             }
-            BaoDong bd = new BaoDong();
-            bd.ShowBD(txtU, txtF, txtBD, comboBox1);
-        }
+            if (checkU(txtU) == 0) return;
+            if (txtU.Text.Length > 8)
+            {
+                DialogResult chon = MessageBox.Show("Thuật toán tìm tất cả bao đóng của lược đồ quan hệ có nhiều hơn 8 thuộc tính sẽ làm chương trình chạy chậm và có thể bị đột tử nếu nhiều hơn 10 thuộc tính :)), vui lòng nhấn OK để tìm bao đóng của X", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (chon == DialogResult.OK)
+                {
+                    SendData obj = new SendData();
+                    obj.U = txtU.Text;
+                    obj.F = txtF.Text;
 
-        private void txtU_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !((e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar == 32 || e.KeyChar == 8);
-        }
+                    Form2 f2 = new Form2(obj);
+                    f2.ShowDialog();
+                }
+            }
 
-        private void txtF_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !((e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar == 44 || e.KeyChar == 45 || e.KeyChar == 32 || e.KeyChar == 62 || e.KeyChar == 8);
+            else
+            {
+                BaoDong bd = new BaoDong();
+                bd.ShowBD(txtU, txtF, txtBD, comboBox1);
+            }
         }
-
-        private void txtU_Enter(object sender, EventArgs e)
-        {
-          //  txtU.Text = "";
-        }
-
+        
         private void btnTC_Click(object sender, EventArgs e)
         {
+            comboBox1.Enabled = false;
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtBD);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             BaoDong bd = new BaoDong();
-            bd.TapCon(txtU, txtF, txtBD, comboBox1);
-            txtBD.Text += "Tập con: " + bd.TapCon(txtU, txtF, txtBD, comboBox1) + "\r\n\r\n\r\nTập con thực sự < trừ tập con t = U >: " + (bd.TapCon(txtU, txtF, txtBD, comboBox1) - 1) + "\r\n\r\n\r\nTập con thực sự khác rỗng: " + (bd.TapCon(txtU, txtF, txtBD, comboBox1) - 2);
+            bd.TapCon(txtU, txtF, txtBD);
+            txtBD.Text += "Tập con: " + bd.TapCon(txtU, txtF, txtBD) + "\r\n\r\n\r\nTập con thực sự < trừ tập con t = U >: " + (bd.TapCon(txtU, txtF, txtBD) - 1) + "\r\n\r\n\r\nTập con thực sự khác rỗng: " + (bd.TapCon(txtU, txtF, txtBD) - 2);
         }
 
         private void btnMKhoa_Click(object sender, EventArgs e)
         {
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtKhoa);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             TimKhoa tk = new TimKhoa();
             tk.TimMoiKhoa(txtU, txtF, txtKhoa);
         }
@@ -132,10 +151,11 @@ namespace KhoaLDQH
         {
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtKhoa);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             TimKhoa tk = new TimKhoa();
             tk.Tim1Khoa(txtU, txtF, txtKhoa);
         }
@@ -164,10 +184,11 @@ namespace KhoaLDQH
         {
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtPhu);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             PhuToiThieu phu = new PhuToiThieu();
             phu.PhuTT(txtU, txtF, txtPhu);
         }
@@ -182,10 +203,11 @@ namespace KhoaLDQH
         {
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtPhu);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             DangChuan dc = new DangChuan();
             dc.XacdinhChuan2(txtDC, txtU, txtF);
         }
@@ -194,10 +216,11 @@ namespace KhoaLDQH
         {
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtPhu);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             DangChuan dc = new DangChuan();
             dc.XacdinhChuan3(txtDC, txtU, txtF);
         }
@@ -206,10 +229,11 @@ namespace KhoaLDQH
         {
             if (txtU.Text == "")
             {
-                MessageBox.Show("Chưa nhập lược đồ quan hệ!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Reset(txtPhu);
                 return;
             }
+            if (checkU(txtU) == 0) return;
             DangChuan dc = new DangChuan();
             dc.XacdinhChuanBC(txtDC, txtU, txtF);
         }
@@ -223,5 +247,70 @@ namespace KhoaLDQH
             }
             Save(txtDC.Text);
         }
+
+        private void tìmBaoĐóngCủaXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendData obj = new SendData();
+            Form2 f2 = new Form2(obj);
+            f2.ShowDialog();
+        }
+
+        private void btnXDchuan_Click(object sender, EventArgs e)
+        {
+            if (txtU.Text == "")
+            {
+                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset(txtPhu);
+                return;
+            }
+            DangChuan dc = new DangChuan();
+            dc.XacdinhCHUAN(txtDC, txtU, txtF);
+        }
+
+        private void kiểmTraPTHSuyDiễnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 f3 = new Form3();
+            f3.ShowDialog();
+        }
+
+        private void vềPhầnMềmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VEPM f = new VEPM();
+            f.ShowDialog();
+        }
+
+        private void vềTácGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VETG f = new VETG();
+            f.ShowDialog();
+        }
+
+        private void armstrongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Armstrong f = new Armstrong();
+            f.ShowDialog();
+        }
+
+        //private void txtU_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar.ToString().IndexOfAny(@"0123456789!@#$%^&*()_+-/=|\{}[]?><.,';:".ToCharArray()) != -1)
+        //    {
+        //        e.Handled = true;
+        //        MessageBox.Show("Tập thuộc tính U chỉ được nhập các ký tự abc", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else
+        //        e.Handled = false;
+        //}
+
+        //private void txtF_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar.ToString().IndexOfAny(@"0123456789!@#$%^&*()_+/=|\{}[]?<.';:".ToCharArray()) != -1)
+        //    {
+        //        e.Handled = true;
+        //        MessageBox.Show("Tập thuộc tính F chỉ được nhập các ký tự abc, ký hiệu -> và dấu phẩy", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else
+        //        e.Handled = false;
+        //}
     }
 }

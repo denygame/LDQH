@@ -58,14 +58,7 @@ namespace KhoaLDQH
             stt = new int[t.Length];
 
             for (int i = 0; i < t.Length; i++)
-            {
-                if (i == t.Length - 1)
-                {
-                    mang[i] = t[i].ToString();
-                    break;
-                }
                 mang[i] = t[i].ToString();
-            }
             
 
             if (solution.check(txtF.Text) == 1)
@@ -78,7 +71,6 @@ namespace KhoaLDQH
                 solution.layData(txtF.Text, ref n, txtU,txtF);
 
                 Try_VC(0);
-                
                 SapXep();
 
                 for (int i = 0; i < listSX.Count; i++)
@@ -100,14 +92,8 @@ namespace KhoaLDQH
             stt = new int[t.Length];
 
             for (int i = 0; i < t.Length; i++)
-            {
-                if (i == t.Length - 1)
-                {
-                    mang[i] = t[i].ToString();
-                    break;
-                }
                 mang[i] = t[i].ToString();
-            }
+
             solution.Trai = "";
             solution.Phai = "";
 
@@ -159,14 +145,73 @@ namespace KhoaLDQH
                 else Try_VC(i + 1);
             }
         }
+        
 
-        public int TapCon(TextBox txtU,TextBox txtF,TextBox txtBD,ComboBox cb)
+        
+        public int TapCon(TextBox txtU,TextBox txtF,TextBox txtBD)
         {
-            listSX.Clear();
-            ShowBD(txtU, txtF, txtBD, cb);
+            txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
+            txtU.Text = solution.XoaGiong(txtU.Text);
+            if (txtF.Text == "") txtF.Text += "Ф";
+            txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
             txtBD.Text = "";
             txtBD.Text += "R = <U, F>\r\nU = " + txtU.Text + "\r\nF = { " + txtF.Text + " }\r\n======================== TẬP CON ========================\r\n\r\n";
-            return (listSX.Count + 1);
+            return (int)Math.Pow(2, txtU.Text.Length);
+        }
+
+
+
+        public void BDcuaX(TextBox txtU, TextBox txtF, TextBox txtX, TextBox txtBDX)
+        {
+            string t = txtU.Text;
+
+            //lấy từ ký tự vào mảng
+            mang = new string[t.Length];
+            stt = new int[t.Length];
+
+            for (int i = 0; i < t.Length; i++)
+                mang[i] = t[i].ToString();
+            if (solution.check(txtF.Text) == 1)
+            {
+                txtBDX.Text = "======================== BAO ĐÓNG CỦA X ========================\r\n";
+                solution.Trai = "";
+                solution.Phai = "";
+
+                int n = 0;
+                solution.layData(txtF.Text, ref n, txtU, txtF);
+
+                txtBDX.Text += "\t\t(X)+  =  ("+txtX.Text+")+  =  " + BD(solution.BestChoice(txtX.Text), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + "\r\n\r\n";
+            }
+        }
+
+
+        public void ktPTHsuydien(TextBox txtU, TextBox txtF, TextBox txtVT,TextBox txtVP, TextBox txtSD)
+        {
+            string t = txtU.Text;
+
+            //lấy từ ký tự vào mảng
+            mang = new string[t.Length];
+            stt = new int[t.Length];
+
+            for (int i = 0; i < t.Length; i++)
+                mang[i] = t[i].ToString();
+            if (solution.check(txtF.Text) == 1)
+            {
+                txtSD.Text = "======================= PTH SUY DIỄN =======================\r\n";
+                solution.Trai = "";
+                solution.Phai = "";
+
+                int n = 0;
+                solution.layData(txtF.Text, ref n, txtU, txtF);
+
+
+                string vtPTH = solution.XoaGiong(txtVT.Text);
+                string vpPTH = solution.XoaGiong(txtVP.Text);
+
+                if (solution.Chua(BD(vtPTH, solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length), vpPTH) == 1)
+                    txtSD.Text += "PTH: " + txtVT.Text + "->" + txtVP.Text + " là phụ thuộc hàm suy diễn được từ lược đồ quan hệ đã cho";
+                else txtSD.Text += "PTH: " + txtVT.Text + "->" + txtVP.Text + " là phụ thuộc hàm không thể suy diễn được từ lược đồ quan hệ đã cho";
+            }
         }
     }
 }

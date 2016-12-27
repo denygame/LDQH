@@ -38,7 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chứcNăngPhụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tìmBaoĐóngCủaXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liênHệToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vềPhầnMềmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vềTácGiảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabBD = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -60,12 +65,13 @@
             this.txtPhu = new System.Windows.Forms.TextBox();
             this.tabDangChuan = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.btnXDchuan = new System.Windows.Forms.Button();
+            this.btnDC2 = new System.Windows.Forms.Button();
             this.btnDC3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnBC = new System.Windows.Forms.Button();
             this.txtDC = new System.Windows.Forms.TextBox();
-            this.btnDC2 = new System.Windows.Forms.Button();
-            this.btnXDchuan = new System.Windows.Forms.Button();
+            this.armstrongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -138,7 +144,6 @@
             this.txtF.Name = "txtF";
             this.txtF.Size = new System.Drawing.Size(371, 24);
             this.txtF.TabIndex = 4;
-            this.txtF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtF_KeyPress);
             // 
             // txtU
             // 
@@ -147,8 +152,6 @@
             this.txtU.Name = "txtU";
             this.txtU.Size = new System.Drawing.Size(371, 24);
             this.txtU.TabIndex = 3;
-            this.txtU.Enter += new System.EventHandler(this.txtU_Enter);
-            this.txtU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtU_KeyPress);
             // 
             // label3
             // 
@@ -185,6 +188,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hướngDẫnToolStripMenuItem,
+            this.chứcNăngPhụToolStripMenuItem,
+            this.armstrongToolStripMenuItem,
             this.liênHệToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -195,16 +200,55 @@
             // hướngDẫnToolStripMenuItem
             // 
             this.hướngDẫnToolStripMenuItem.Name = "hướngDẫnToolStripMenuItem";
-            this.hướngDẫnToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.hướngDẫnToolStripMenuItem.Text = "Hướng Dẫn";
+            this.hướngDẫnToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.hướngDẫnToolStripMenuItem.Text = "Hướng dẫn";
             this.hướngDẫnToolStripMenuItem.Click += new System.EventHandler(this.hướngDẫnToolStripMenuItem_Click);
+            // 
+            // chứcNăngPhụToolStripMenuItem
+            // 
+            this.chứcNăngPhụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tìmBaoĐóngCủaXToolStripMenuItem,
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem});
+            this.chứcNăngPhụToolStripMenuItem.Name = "chứcNăngPhụToolStripMenuItem";
+            this.chứcNăngPhụToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.chứcNăngPhụToolStripMenuItem.Text = "Chức năng phụ";
+            // 
+            // tìmBaoĐóngCủaXToolStripMenuItem
+            // 
+            this.tìmBaoĐóngCủaXToolStripMenuItem.Name = "tìmBaoĐóngCủaXToolStripMenuItem";
+            this.tìmBaoĐóngCủaXToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.tìmBaoĐóngCủaXToolStripMenuItem.Text = "Tìm bao đóng của X";
+            this.tìmBaoĐóngCủaXToolStripMenuItem.Click += new System.EventHandler(this.tìmBaoĐóngCủaXToolStripMenuItem_Click);
+            // 
+            // kiểmTraPTHSuyDiễnToolStripMenuItem
+            // 
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem.Name = "kiểmTraPTHSuyDiễnToolStripMenuItem";
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem.Text = "Kiểm tra PTH suy diễn";
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem.Click += new System.EventHandler(this.kiểmTraPTHSuyDiễnToolStripMenuItem_Click);
             // 
             // liênHệToolStripMenuItem
             // 
+            this.liênHệToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vềPhầnMềmToolStripMenuItem,
+            this.vềTácGiảToolStripMenuItem});
             this.liênHệToolStripMenuItem.Name = "liênHệToolStripMenuItem";
-            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.liênHệToolStripMenuItem.Text = "Liên Hệ";
-            this.liênHệToolStripMenuItem.Click += new System.EventHandler(this.liênHệToolStripMenuItem_Click);
+            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.liênHệToolStripMenuItem.Text = "Thông tin";
+            // 
+            // vềPhầnMềmToolStripMenuItem
+            // 
+            this.vềPhầnMềmToolStripMenuItem.Name = "vềPhầnMềmToolStripMenuItem";
+            this.vềPhầnMềmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vềPhầnMềmToolStripMenuItem.Text = "Về phần mềm";
+            this.vềPhầnMềmToolStripMenuItem.Click += new System.EventHandler(this.vềPhầnMềmToolStripMenuItem_Click);
+            // 
+            // vềTácGiảToolStripMenuItem
+            // 
+            this.vềTácGiảToolStripMenuItem.Name = "vềTácGiảToolStripMenuItem";
+            this.vềTácGiảToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vềTácGiảToolStripMenuItem.Text = "Về tác giả";
+            this.vềTácGiảToolStripMenuItem.Click += new System.EventHandler(this.vềTácGiảToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -256,6 +300,7 @@
             // 
             this.comboBox1.DropDownHeight = 100;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.IntegralHeight = false;
@@ -514,6 +559,34 @@
             this.splitContainer5.SplitterDistance = 124;
             this.splitContainer5.TabIndex = 0;
             // 
+            // btnXDchuan
+            // 
+            this.btnXDchuan.BackColor = System.Drawing.Color.Black;
+            this.btnXDchuan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXDchuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXDchuan.ForeColor = System.Drawing.Color.Red;
+            this.btnXDchuan.Location = new System.Drawing.Point(3, 157);
+            this.btnXDchuan.Name = "btnXDchuan";
+            this.btnXDchuan.Size = new System.Drawing.Size(118, 26);
+            this.btnXDchuan.TabIndex = 5;
+            this.btnXDchuan.Text = "Xác định chuẩn";
+            this.btnXDchuan.UseVisualStyleBackColor = false;
+            this.btnXDchuan.Click += new System.EventHandler(this.btnXDchuan_Click);
+            // 
+            // btnDC2
+            // 
+            this.btnDC2.BackColor = System.Drawing.Color.Black;
+            this.btnDC2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDC2.ForeColor = System.Drawing.Color.Red;
+            this.btnDC2.Location = new System.Drawing.Point(29, 98);
+            this.btnDC2.Name = "btnDC2";
+            this.btnDC2.Size = new System.Drawing.Size(62, 26);
+            this.btnDC2.TabIndex = 4;
+            this.btnDC2.Text = "DC 2";
+            this.btnDC2.UseVisualStyleBackColor = false;
+            this.btnDC2.Click += new System.EventHandler(this.btnDC2_Click);
+            // 
             // btnDC3
             // 
             this.btnDC3.BackColor = System.Drawing.Color.Black;
@@ -569,32 +642,12 @@
             this.txtDC.Size = new System.Drawing.Size(538, 342);
             this.txtDC.TabIndex = 0;
             // 
-            // btnDC2
+            // armstrongToolStripMenuItem
             // 
-            this.btnDC2.BackColor = System.Drawing.Color.Black;
-            this.btnDC2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDC2.ForeColor = System.Drawing.Color.Red;
-            this.btnDC2.Location = new System.Drawing.Point(29, 98);
-            this.btnDC2.Name = "btnDC2";
-            this.btnDC2.Size = new System.Drawing.Size(62, 26);
-            this.btnDC2.TabIndex = 4;
-            this.btnDC2.Text = "DC 2";
-            this.btnDC2.UseVisualStyleBackColor = false;
-            this.btnDC2.Click += new System.EventHandler(this.btnDC2_Click);
-            // 
-            // btnXDchuan
-            // 
-            this.btnXDchuan.BackColor = System.Drawing.Color.Black;
-            this.btnXDchuan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXDchuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXDchuan.ForeColor = System.Drawing.Color.Red;
-            this.btnXDchuan.Location = new System.Drawing.Point(3, 157);
-            this.btnXDchuan.Name = "btnXDchuan";
-            this.btnXDchuan.Size = new System.Drawing.Size(118, 26);
-            this.btnXDchuan.TabIndex = 5;
-            this.btnXDchuan.Text = "Xác định chuẩn";
-            this.btnXDchuan.UseVisualStyleBackColor = false;
+            this.armstrongToolStripMenuItem.Name = "armstrongToolStripMenuItem";
+            this.armstrongToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.armstrongToolStripMenuItem.Text = "Armstrong";
+            this.armstrongToolStripMenuItem.Click += new System.EventHandler(this.armstrongToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -685,5 +738,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnBC;
         private System.Windows.Forms.TextBox txtDC;
+        private System.Windows.Forms.ToolStripMenuItem chứcNăngPhụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tìmBaoĐóngCủaXToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kiểmTraPTHSuyDiễnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vềPhầnMềmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vềTácGiảToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem armstrongToolStripMenuItem;
     }
 }

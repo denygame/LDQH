@@ -21,6 +21,8 @@ namespace KhoaLDQH
 
         private List<string> listVT;
         private List<string> listVP;
+        private List<string> listVTsauB2;
+        private List<string> listVPsauB2;
 
         public DangChuan() { }
 
@@ -71,14 +73,12 @@ namespace KhoaLDQH
             ListTatCaKhoa.Clear();
             txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
             txtU.Text = solution.XoaGiong(txtU.Text);
-
             string t = txtU.Text;
-
             if (txtF.Text == "") txtF.Text += "Ф";
-
-
             txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
             txtDC.Text = "";
+
+
 
             if (solution.check(txtF.Text) == 1)
             {
@@ -158,16 +158,16 @@ namespace KhoaLDQH
             ListTatCaKhoa.Clear();
             listVP = new List<string>();
             listVT = new List<string>();
+            listVPsauB2 = new List<string>();
+            listVTsauB2 = new List<string>();
 
             txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
             txtU.Text = solution.XoaGiong(txtU.Text);
-
             string t = txtU.Text;
-
             if (txtF.Text == "") txtF.Text += "Ф";
-
             txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
             txtDC.Text = "";
+
 
             if (solution.check(txtF.Text) == 1)
             {
@@ -201,15 +201,33 @@ namespace KhoaLDQH
                         listVP.Add(solution.VePhai[i]);
                     }
                 }
-                txtDC.Text += "=> F' = {";
-                for (int i = 0; i < listVP.Count; i++)
+
+                //loại bỏ pth giống nhau
+                for (int i = 0; i < listVT.Count; i++)
                 {
-                    if (i == listVP.Count - 1)
+                    int test = 0;
+                    for (int j = i + 1; j < listVP.Count; j++)
                     {
-                        txtDC.Text += listVT[i] + "->" + listVP[i] + "}\r\n\r\n";
+                        if (listVT[i] == listVT[j] && listVP[i] == listVP[j])
+                            test++;
+                    }
+                    if (test == 0)
+                    {
+                        listVTsauB2.Add(listVT[i]);
+                        listVPsauB2.Add(listVP[i]);
+                    }
+                }
+
+
+                txtDC.Text += "=> F' = {";
+                for (int i = 0; i < listVPsauB2.Count; i++)
+                {
+                    if (i == listVPsauB2.Count - 1)
+                    {
+                        txtDC.Text += listVTsauB2[i] + "->" + listVPsauB2[i] + "}\r\n\r\n";
                         break;
                     }
-                    txtDC.Text += listVT[i] + "->" + listVP[i] + ",";
+                    txtDC.Text += listVTsauB2[i] + "->" + listVPsauB2[i] + ",";
                 }
 
                 txtDC.Text += "\r\n\r\n◊◊ Bước 3: Nếu mọi phụ thuộc hàm X -> A thuộc F' đều có X là siêu khóa hoặc A là thuộc tính khoá thì Q đạt chuẩn 3 ngược lại Q không đạt chuẩn 3\r\n";
@@ -218,17 +236,17 @@ namespace KhoaLDQH
 
                 int dem = 0;
 
-                for (int i = 0; i < listVT.Count; i++)
-                    if (solution.Chua(ttKhoa, listVP[i]) == 0)
+                for (int i = 0; i < listVTsauB2.Count; i++)
+                    if (solution.Chua(ttKhoa, listVPsauB2[i]) == 0)
                         for (int j = 0; j < ListTatCaKhoa.Count; j++)
                         {
-                            if (solution.Chua(listVT[i], ListTatCaKhoa[j]) == 1)
+                            if (solution.Chua(listVTsauB2[i], ListTatCaKhoa[j]) == 1)
                                 dem++;
                         }
                     else dem++;
 
 
-                if (dem == listVP.Count)
+                if (dem == listVPsauB2.Count)
                     txtDC.Text += "\r\n==> Lược đồ đạt chuẩn 3";
                 else
                     txtDC.Text += "\r\n==> Lược đồ không đạt chuẩn 3";
@@ -240,6 +258,8 @@ namespace KhoaLDQH
             ListTatCaKhoa.Clear();
             listVP = new List<string>();
             listVT = new List<string>();
+            listVPsauB2 = new List<string>();
+            listVTsauB2 = new List<string>();
 
             txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
             txtU.Text = solution.XoaGiong(txtU.Text);
@@ -283,28 +303,47 @@ namespace KhoaLDQH
                         listVP.Add(solution.VePhai[i]);
                     }
                 }
-                txtDC.Text += "=> F' = {";
-                for (int i = 0; i < listVP.Count; i++)
+
+                //loại bỏ pth giống nhau
+                for (int i = 0; i < listVT.Count; i++)
                 {
-                    if (i == listVP.Count - 1)
+                    int test = 0;
+                    for (int j = i + 1; j < listVP.Count; j++)
                     {
-                        txtDC.Text += listVT[i] + "->" + listVP[i] + "}\r\n\r\n";
+                        if (listVT[i] == listVT[j] && listVP[i] == listVP[j])
+                            test++;
+                    }
+                    if (test == 0)
+                    {
+                        listVTsauB2.Add(listVT[i]);
+                        listVPsauB2.Add(listVP[i]);
+                    }
+                }
+
+
+
+                txtDC.Text += "=> F' = {";
+                for (int i = 0; i < listVPsauB2.Count; i++)
+                {
+                    if (i == listVPsauB2.Count - 1)
+                    {
+                        txtDC.Text += listVTsauB2[i] + "->" + listVPsauB2[i] + "}\r\n\r\n";
                         break;
                     }
-                    txtDC.Text += listVT[i] + "->" + listVP[i] + ",";
+                    txtDC.Text += listVTsauB2[i] + "->" + listVPsauB2[i] + ",";
                 }
 
                 txtDC.Text += "\r\n\r\n◊◊ Bước 3: Nếu mọi phụ thuộc hàm X -> A thuộc F' (Chú ý: với A không thuộc X) đều có X là siêu khóa thì Q đạt chuẩn BC ngược lại Q không đạt chuẩn BC\r\n";
 
                 int dem = 0;
 
-                for (int i = 0; i < listVP.Count; i++)
-                    if (solution.Chua(listVT[i], listVP[i]) == 0)
+                for (int i = 0; i < listVPsauB2.Count; i++)
+                    if (solution.Chua(listVTsauB2[i], listVPsauB2[i]) == 0)
                         for (int j = 0; j < ListTatCaKhoa.Count; j++)
-                            if (solution.Chua(listVT[i], ListTatCaKhoa[j]) == 1)
+                            if (solution.Chua(listVTsauB2[i], ListTatCaKhoa[j]) == 1)
                                 dem++;
 
-                if (dem == listVP.Count)
+                if (dem == listVPsauB2.Count)
                     txtDC.Text += "\r\n==> Lược đồ đạt chuẩn BC";
                 else
                     txtDC.Text += "\r\n==> Lược đồ không đạt chuẩn BC";
@@ -349,7 +388,7 @@ namespace KhoaLDQH
                 txtDC.Text += "Tất cả khóa là: {";
                 for (int i = 0; i < ListTatCaKhoa.Count; i++)
                 {
-                    if(i==ListTatCaKhoa.Count-1)
+                    if (i == ListTatCaKhoa.Count - 1)
                     {
                         txtDC.Text += ListTatCaKhoa[i] + "}";
                         break;

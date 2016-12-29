@@ -17,6 +17,7 @@ namespace KhoaLDQH
         {
             InitializeComponent();
         }
+
         //chọn thuộc tính IsMdiContainer = True để thiết lập form 1 là cha
         private bool checkExistsForm(string name)       //kiểm tra form con mở chưa
         {
@@ -49,7 +50,6 @@ namespace KhoaLDQH
                 Form1 f = new Form1();
                 f.MdiParent = this;
                 f.Show();
-
             }
             else
                 ActiveChildForm("Form1");
@@ -68,7 +68,6 @@ namespace KhoaLDQH
                 VEPM f = new VEPM();
                 f.MdiParent = this;
                 f.Show();
-
             }
             else ActiveChildForm("VEPM");
         }
@@ -80,7 +79,6 @@ namespace KhoaLDQH
                 VETG f = new VETG();
                 f.MdiParent = this;
                 f.Show();
-
             }
             else ActiveChildForm("VETG");
         }
@@ -93,10 +91,8 @@ namespace KhoaLDQH
                 Form2 f = new Form2(obj);
                 f.MdiParent = this;
                 f.Show();
-
             }
             else ActiveChildForm("Form2");
-
         }
 
         private void kiểmTraPTHSuyDiễnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,7 +102,6 @@ namespace KhoaLDQH
                 Form3 f = new Form3();
                 f.MdiParent = this;
                 f.Show();
-
             }
             else ActiveChildForm("Form3");
         }
@@ -118,7 +113,6 @@ namespace KhoaLDQH
                 Form4 f = new Form4();
                 f.MdiParent = this;
                 f.Show();
-
             }
             else ActiveChildForm("Form4");
         }
@@ -130,5 +124,8 @@ namespace KhoaLDQH
             FileInfo fileRoute1 = new FileInfo("testPR.txt");
             fileRoute1.Delete();
         }
+
+
+
     }
 }

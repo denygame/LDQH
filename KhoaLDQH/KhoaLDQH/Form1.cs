@@ -259,17 +259,5 @@ namespace KhoaLDQH
         
         
         
-
-       
-
-        private void phânRãKhôngMấtTinToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form4 f4 = new Form4();
-            this.Visible = false;
-            f4.ShowDialog();
-            this.Visible = true;
-        }
-        
-        
     }
 }

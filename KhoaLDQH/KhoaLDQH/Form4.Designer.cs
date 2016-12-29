@@ -38,6 +38,7 @@
             this.txtPhanRa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtF
@@ -136,11 +137,23 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "KIỂM TRA PHÉP PHÂN RÃ KHÔNG MẤT THÔNG TIN";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkRed;
+            this.label4.Location = new System.Drawing.Point(421, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(303, 17);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Nhập các bộ phân rã p theo định dạng ac,b,ad";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 493);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPhanRa);
             this.Controls.Add(this.label1);
@@ -172,5 +185,6 @@
         private System.Windows.Forms.TextBox txtPhanRa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

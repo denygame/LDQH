@@ -11,7 +11,7 @@ namespace KhoaLDQH
     class Solution
     {
         private string T, P;
-        private string[] PTH, VT, VP;
+        private string[] PTH, VT, VP, phanRaThanhCacBo;
 
         public string Trai { get { return T; } set { T = value; } }
         public string Phai { get { return P; } set { P = value; } }
@@ -22,11 +22,13 @@ namespace KhoaLDQH
 
         public string[] VePhai { get { return VP; } set { VP = value; } }
 
+        public string[] PhanRaThanhCacBo { get { return phanRaThanhCacBo; } set { phanRaThanhCacBo = value; } }
+
 
 
         public Solution() { }
 
-    
+
         public string XoaGiong(string s)
         {
             string tam = "";
@@ -43,6 +45,24 @@ namespace KhoaLDQH
                 }
             }
             return BestChoice(tam);
+        }
+
+        public string XoaGiongPR(string s)
+        {
+            string tam = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                int dem = 0;
+                if (i == 0) tam += s[i];
+                else
+                {
+                    for (int j = 0; j < tam.Length; j++)
+                        if (tam[j] == s[i])
+                            dem++;
+                    if (dem == 0) tam += s[i];
+                }
+            }
+            return tam;
         }
 
         public string BestChoice(string s) //sắp xếp lại theo thứ tự bảng chữ cái
@@ -119,9 +139,9 @@ namespace KhoaLDQH
             string tam = "0123456789!@#$%^&*()_+/=|{}[]?<.';:";
             tam.ToCharArray();
 
-            for(int i=0;i<s.Length;i++)
-                for(int j=0;j<tam.Length;j++)
-                    if(s[i]==tam[j])
+            for (int i = 0; i < s.Length; i++)
+                for (int j = 0; j < tam.Length; j++)
+                    if (s[i] == tam[j])
                     {
                         MessageBox.Show("Nhập F không đúng định dạng!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return 0;
@@ -178,7 +198,7 @@ namespace KhoaLDQH
             return 1;
         }
 
-        public void layData(string s, ref int n,TextBox txtU,TextBox txtF)
+        public void layData(string s, ref int n, TextBox txtU, TextBox txtF)
         {
             if (s == "Ф")
             {
@@ -187,7 +207,7 @@ namespace KhoaLDQH
                 VT = new string[t.Length];
                 VP = new string[t.Length];
                 PTH = new string[t.Length];
-                
+
                 for (int i = 0; i < t.Length; i++)
                 {
                     VT[i] = t[i].ToString();
@@ -202,7 +222,7 @@ namespace KhoaLDQH
                 return;
             }
 
-            if(s!= "Ф")
+            if (s != "Ф")
             {
                 using (StreamWriter sw = new StreamWriter("test.txt"))
                 {
@@ -223,7 +243,6 @@ namespace KhoaLDQH
                 for (int i = 0; i < lines.Length; i++)
                     PTH[i] = lines[i];
 
-
                 for (int i = 0; i < lines.Length; i++)
                 {
                     string[] tam = lines[i].Split(new char[] { '-', '>' }, StringSplitOptions.RemoveEmptyEntries);
@@ -239,12 +258,10 @@ namespace KhoaLDQH
                 T = XoaGiong(T);
                 P = XoaGiong(P);
 
-
                 txtF.Text = "";
-
-                for (int i = 0; i <lines.Length;i++)
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    if(i==lines.Length-1)
+                    if (i == lines.Length - 1)
                     {
                         txtF.Text += VT[i] + "->" + VP[i];
                         break;
@@ -253,7 +270,30 @@ namespace KhoaLDQH
                 }
             }
         }
-        
+
+
+        //lấy các bộ phân rã bảo toàn thông tin
+        public void layDataForFormPR(string s, TextBox txtPhanRa)
+        {
+            using (StreamWriter sw = new StreamWriter("testPR.txt"))
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] == ',')
+                        sw.WriteLine();
+                    else sw.Write(s[i]);
+                }
+            }
+
+            string[] lines = File.ReadAllLines("testPR.txt");
+            phanRaThanhCacBo = new string[lines.Length];
+
+            for (int i = 0; i < lines.Length; i++)
+                phanRaThanhCacBo[i] = XoaGiong(lines[i]);
+        }
     }
+    
+
 }
+
 

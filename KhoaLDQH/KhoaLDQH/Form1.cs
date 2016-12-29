@@ -37,6 +37,12 @@ namespace KhoaLDQH
             
         }
 
+        
+
+
+
+
+
 
         public Form1()
         {
@@ -53,12 +59,7 @@ namespace KhoaLDQH
                 using (StreamWriter sw = new StreamWriter(a.FileName))
                     sw.WriteLine(KQ);
         }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            FileInfo fileRoute = new FileInfo("test.txt");
-            fileRoute.Delete();
-        }
+        
 
         private void btnMuiTen_Click(object sender, EventArgs e)
         {
@@ -70,11 +71,6 @@ namespace KhoaLDQH
             txtF.SelectionStart = txtF.Text.Length;
         }
 
-        private void hướngDẫnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            HDSD hd = new HDSD();
-            hd.ShowDialog();
-        }
         
 
         private void btnBD_Click(object sender, EventArgs e)
@@ -247,13 +243,7 @@ namespace KhoaLDQH
             }
             Save(txtDC.Text);
         }
-
-        private void tìmBaoĐóngCủaXToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SendData obj = new SendData();
-            Form2 f2 = new Form2(obj);
-            f2.ShowDialog();
-        }
+        
 
         private void btnXDchuan_Click(object sender, EventArgs e)
         {
@@ -266,51 +256,20 @@ namespace KhoaLDQH
             DangChuan dc = new DangChuan();
             dc.XacdinhCHUAN(txtDC, txtU, txtF);
         }
+        
+        
+        
 
-        private void kiểmTraPTHSuyDiễnToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+        private void phânRãKhôngMấtTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 f3 = new Form3();
-            f3.ShowDialog();
+            Form4 f4 = new Form4();
+            this.Visible = false;
+            f4.ShowDialog();
+            this.Visible = true;
         }
-
-        private void vềPhầnMềmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VEPM f = new VEPM();
-            f.ShowDialog();
-        }
-
-        private void vềTácGiảToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VETG f = new VETG();
-            f.ShowDialog();
-        }
-
-        private void armstrongToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Armstrong f = new Armstrong();
-            f.ShowDialog();
-        }
-
-        //private void txtU_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (e.KeyChar.ToString().IndexOfAny(@"0123456789!@#$%^&*()_+-/=|\{}[]?><.,';:".ToCharArray()) != -1)
-        //    {
-        //        e.Handled = true;
-        //        MessageBox.Show("Tập thuộc tính U chỉ được nhập các ký tự abc", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    else
-        //        e.Handled = false;
-        //}
-
-        //private void txtF_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (e.KeyChar.ToString().IndexOfAny(@"0123456789!@#$%^&*()_+/=|\{}[]?<.';:".ToCharArray()) != -1)
-        //    {
-        //        e.Handled = true;
-        //        MessageBox.Show("Tập thuộc tính F chỉ được nhập các ký tự abc, ký hiệu -> và dấu phẩy", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    else
-        //        e.Handled = false;
-        //}
+        
+        
     }
 }

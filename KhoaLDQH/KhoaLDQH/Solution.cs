@@ -291,6 +291,55 @@ namespace KhoaLDQH
             for (int i = 0; i < lines.Length; i++)
                 phanRaThanhCacBo[i] = XoaGiong(lines[i]);
         }
+
+
+        public void layDataKhongU(string s, ref int n, TextBox txtF)
+        {
+            using (StreamWriter sw = new StreamWriter("testKU.txt"))
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] == ',')
+                        sw.WriteLine();
+                    else sw.Write(s[i]);
+                }
+            }
+
+            string[] lines = File.ReadAllLines("testKU.txt");
+            VT = new string[lines.Length];
+            VP = new string[lines.Length];
+            PTH = new string[lines.Length];
+            n = lines.Length;
+
+            for (int i = 0; i < lines.Length; i++)
+                PTH[i] = lines[i];
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] tam = lines[i].Split(new char[] { '-', '>' }, StringSplitOptions.RemoveEmptyEntries);
+
+                T += tam[0];
+                VT[i] = tam[0];
+                VT[i] = XoaGiong(VT[i]);
+
+                P += tam[1];
+                VP[i] = tam[1];
+                VP[i] = XoaGiong(VP[i]);
+            }
+            T = XoaGiong(T);
+            P = XoaGiong(P);
+
+            txtF.Text = "";
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (i == lines.Length - 1)
+                {
+                    txtF.Text += VT[i] + "->" + VP[i];
+                    break;
+                }
+                txtF.Text += VT[i] + "->" + VP[i] + ",";
+            }
+        }
     }
     
 

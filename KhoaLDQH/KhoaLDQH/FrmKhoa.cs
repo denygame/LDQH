@@ -165,30 +165,7 @@ namespace KhoaLDQH
             }
             Save(txtKhoa.Text);
         }
-
-        private void btnSavePhu_Click(object sender, EventArgs e)
-        {
-            if (txtPhu.Text == "")
-            {
-                MessageBox.Show("Không có dữ liệu để lưu!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Save(txtPhu.Text);
-        }
-
-        private void btnPhu_Click(object sender, EventArgs e)
-        {
-            if (txtU.Text == "")
-            {
-                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reset(txtPhu);
-                return;
-            }
-            if (checkU(txtU) == 0) return;
-            PhuToiThieu phu = new PhuToiThieu();
-            phu.PhuTT(txtU, txtF, txtPhu);
-        }
-
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             BaoDong bd = new BaoDong();
@@ -200,7 +177,6 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reset(txtPhu);
                 return;
             }
             if (checkU(txtU) == 0) return;
@@ -213,7 +189,6 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reset(txtPhu);
                 return;
             }
             if (checkU(txtU) == 0) return;
@@ -226,7 +201,6 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reset(txtPhu);
                 return;
             }
             if (checkU(txtU) == 0) return;
@@ -250,14 +224,25 @@ namespace KhoaLDQH
             if (txtU.Text == "")
             {
                 MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reset(txtPhu);
                 return;
             }
             DangChuan dc = new DangChuan();
             dc.XacdinhCHUAN(txtDC, txtU, txtF);
         }
-        
-        
-        
+
+        //private bool kt = false;
+        //private void btnAnHien_Click(object sender, EventArgs e)
+        //{
+        //    if(kt==true)
+        //    {
+        //        txtU.Enabled = true;
+        //        kt = false;
+        //    }
+        //    else
+        //    {
+        //        txtU.Enabled = false;
+        //        kt = true;
+        //    }
+        //}
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKhoa));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMuiTen = new System.Windows.Forms.Button();
             this.txtF = new System.Windows.Forms.TextBox();
             this.txtU = new System.Windows.Forms.TextBox();
@@ -50,11 +51,6 @@
             this.btnSaveKhoa = new System.Windows.Forms.Button();
             this.btn1Khoa = new System.Windows.Forms.Button();
             this.txtKhoa = new System.Windows.Forms.TextBox();
-            this.tabPhu = new System.Windows.Forms.TabPage();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.btnPhu = new System.Windows.Forms.Button();
-            this.btnSavePhu = new System.Windows.Forms.Button();
-            this.txtPhu = new System.Windows.Forms.TextBox();
             this.tabDangChuan = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.btnXDchuan = new System.Windows.Forms.Button();
@@ -63,11 +59,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnBC = new System.Windows.Forms.Button();
             this.txtDC = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabBD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -79,17 +75,11 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.tabPhu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
             this.tabDangChuan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -118,6 +108,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(692, 522);
             this.splitContainer1.SplitterDistance = 135;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(456, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(226, 125);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // btnMuiTen
             // 
@@ -180,7 +179,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabBD);
             this.tabControl1.Controls.Add(this.tabKhoa);
-            this.tabControl1.Controls.Add(this.tabPhu);
             this.tabControl1.Controls.Add(this.tabDangChuan);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
@@ -380,75 +378,6 @@
             this.txtKhoa.Size = new System.Drawing.Size(538, 342);
             this.txtKhoa.TabIndex = 0;
             // 
-            // tabPhu
-            // 
-            this.tabPhu.Controls.Add(this.splitContainer4);
-            this.tabPhu.Location = new System.Drawing.Point(4, 22);
-            this.tabPhu.Name = "tabPhu";
-            this.tabPhu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPhu.Size = new System.Drawing.Size(678, 354);
-            this.tabPhu.TabIndex = 4;
-            this.tabPhu.Text = "Phủ Tối Thiểu";
-            this.tabPhu.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer4.Name = "splitContainer4";
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.BackColor = System.Drawing.Color.LightGray;
-            this.splitContainer4.Panel1.Controls.Add(this.btnPhu);
-            this.splitContainer4.Panel1.Controls.Add(this.btnSavePhu);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.txtPhu);
-            this.splitContainer4.Size = new System.Drawing.Size(672, 348);
-            this.splitContainer4.SplitterDistance = 124;
-            this.splitContainer4.TabIndex = 0;
-            // 
-            // btnPhu
-            // 
-            this.btnPhu.BackColor = System.Drawing.Color.Black;
-            this.btnPhu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhu.ForeColor = System.Drawing.Color.Red;
-            this.btnPhu.Location = new System.Drawing.Point(11, 36);
-            this.btnPhu.Name = "btnPhu";
-            this.btnPhu.Size = new System.Drawing.Size(101, 26);
-            this.btnPhu.TabIndex = 3;
-            this.btnPhu.Text = "Kết Quả";
-            this.btnPhu.UseVisualStyleBackColor = false;
-            this.btnPhu.Click += new System.EventHandler(this.btnPhu_Click);
-            // 
-            // btnSavePhu
-            // 
-            this.btnSavePhu.BackColor = System.Drawing.Color.Black;
-            this.btnSavePhu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSavePhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePhu.ForeColor = System.Drawing.Color.Red;
-            this.btnSavePhu.Location = new System.Drawing.Point(18, 290);
-            this.btnSavePhu.Name = "btnSavePhu";
-            this.btnSavePhu.Size = new System.Drawing.Size(85, 27);
-            this.btnSavePhu.TabIndex = 2;
-            this.btnSavePhu.Text = "Lưu KQ";
-            this.btnSavePhu.UseVisualStyleBackColor = false;
-            this.btnSavePhu.Click += new System.EventHandler(this.btnSavePhu_Click);
-            // 
-            // txtPhu
-            // 
-            this.txtPhu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhu.Location = new System.Drawing.Point(3, 3);
-            this.txtPhu.Multiline = true;
-            this.txtPhu.Name = "txtPhu";
-            this.txtPhu.ReadOnly = true;
-            this.txtPhu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPhu.Size = new System.Drawing.Size(538, 342);
-            this.txtPhu.TabIndex = 0;
-            // 
             // tabDangChuan
             // 
             this.tabDangChuan.Controls.Add(this.splitContainer5);
@@ -568,16 +497,7 @@
             this.txtDC.Size = new System.Drawing.Size(538, 342);
             this.txtDC.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(456, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(226, 125);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Form1
+            // FrmKhoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -586,7 +506,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "FrmKhoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khóa - Phủ Tối Thiểu - Dạng Chuẩn";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -594,6 +514,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabBD.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -607,19 +528,12 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            this.tabPhu.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
             this.tabDangChuan.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             this.splitContainer5.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -646,11 +560,6 @@
         private System.Windows.Forms.Button btnSaveKhoa;
         private System.Windows.Forms.Button btn1Khoa;
         private System.Windows.Forms.TextBox txtKhoa;
-        private System.Windows.Forms.TabPage tabPhu;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.Button btnSavePhu;
-        private System.Windows.Forms.TextBox txtPhu;
-        private System.Windows.Forms.Button btnPhu;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabDangChuan;
         private System.Windows.Forms.SplitContainer splitContainer5;

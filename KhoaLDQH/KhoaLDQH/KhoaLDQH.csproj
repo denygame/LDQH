@@ -54,11 +54,17 @@
       <DependentUpon>Armstrong.cs</DependentUpon>
     </Compile>
     <Compile Include="BaoDong.cs" />
-    <Compile Include="FrmKTPTHDT.cs">
+    <Compile Include="FrmKTPTHvtDT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmKTPTHDT.Designer.cs">
-      <DependentUpon>FrmKTPTHDT.cs</DependentUpon>
+    <Compile Include="FrmKTPTHvtDT.Designer.cs">
+      <DependentUpon>FrmKTPTHvtDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPTT.Designer.cs">
+      <DependentUpon>FrmPTT.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTimBD.cs">
       <SubType>Form</SubType>
@@ -120,8 +126,11 @@
     <EmbeddedResource Include="Armstrong.resx">
       <DependentUpon>Armstrong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmKTPTHDT.resx">
-      <DependentUpon>FrmKTPTHDT.cs</DependentUpon>
+    <EmbeddedResource Include="FrmKTPTHvtDT.resx">
+      <DependentUpon>FrmKTPTHvtDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPTT.resx">
+      <DependentUpon>FrmPTT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTimBD.resx">
       <DependentUpon>FrmTimBD.cs</DependentUpon>

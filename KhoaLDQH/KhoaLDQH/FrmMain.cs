@@ -123,17 +123,30 @@ namespace KhoaLDQH
             fileRoute.Delete();
             FileInfo fileRoute1 = new FileInfo("testPR.txt");
             fileRoute1.Delete();
+            FileInfo fileRoute2 = new FileInfo("testKU.txt");
+            fileRoute2.Delete();
         }
 
         private void kiểmTraVếTráiPTHToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!checkExistsForm("FrmKTPTHDT"))
             {
-                FrmKTPTHDT f = new FrmKTPTHDT();
+                FrmKTPTHvtDT f = new FrmKTPTHvtDT();
                 f.MdiParent = this;
                 f.Show();
             }
             else ActiveChildForm("FrmKTPTHDT");
+        }
+
+        private void phủTốiThiểuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkExistsForm("FrmPTT"))
+            {
+                FrmPTT f = new FrmPTT();
+                f.MdiParent = this;
+                f.Show();
+            }
+            else ActiveChildForm("FrmPTT");
         }
     }
 }

@@ -21,13 +21,16 @@ namespace KhoaLDQH
         private List<string> listVPsauB1 = new List<string>();
         private List<string> listVTsauB2 = new List<string>();
         private List<string> listVPsauB2 = new List<string>();
+        
+        
 
-        public void PhuTT(TextBox txtU, TextBox txtF, TextBox txtPhu)
+        public void PhuTT(TextBox txtF, TextBox txtPhu)
         {
-            txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
-            txtU.Text = solution.XoaGiong(txtU.Text);
-            string t = txtU.Text;
-            if (txtF.Text == "") txtF.Text += "Ф";
+            if (txtF.Text == "")
+            {
+                MessageBox.Show("Chưa nhập F", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
             txtPhu.Text = "";
 
@@ -35,13 +38,11 @@ namespace KhoaLDQH
 
             if (solution.check(txtF.Text) == 1)
             {
-                txtPhu.Text = "R = <U, F>\r\nU = " + txtU.Text + "\r\nF = { " + txtF.Text + " }\r\n====================== PHỦ TỐI THIỂU =====================\r\n\r\n";
-
                 solution.Trai = "";
                 solution.Phai = "";
 
                 int n = 0;
-                solution.layData(txtF.Text, ref n, txtU, txtF);
+                solution.layDataKhongU(txtF.Text, ref n, txtF);
                 
                 txtPhu.Text += "◊◊ Bước 1: Chuyển vế phải của mỗi phụ thuộc hàm thành các thuộc tính đơn lẻ\r\n";
 
@@ -84,36 +85,43 @@ namespace KhoaLDQH
 
                 
                 txtPhu.Text += "\r\n\r\n◊◊ Bước 2: Loại bỏ các thuộc tính dư thừa bên phía trái của mỗi phụ thuộc hàm\r\n";
-
-
+                
+    Nhan:
                 string[] vp = listVPsauB1.ToArray();
                 string[] vt = listVTsauB1.ToArray();
-
+                int testBack = 0;
+                
                 ///phụ thuộc hàm có vế trái dư thừa
                 for (int i = 0; i < listVPsauB1.Count; i++)
                 {
                     if (listVTsauB1[i].Length != 1)
                     {
                         txtPhu.Text += "\r\n\t + Xét PTH: " + listVTsauB1[i] + " -> " + listVPsauB1[i] + "\r\n";
-                        LoaiDuThua(listVTsauB1[i], txtPhu, listVPsauB1[i], vt, vp, i);
+                        LoaiDuThua(listVTsauB1[i], txtPhu, listVPsauB1[i], vt, vp, i, ref testBack);
 
-                        txtPhu.Text += "\r\n® Kết quả: F = {";
+                        txtPhu.Text += "® Kết quả: F = {";
                         for (int p = 0; p < listVTsauB1.Count; p++)
                         {
                             if (p == listVTsauB1.Count - 1)
                             {
-                                txtPhu.Text += listVTsauB1[p] + "->" + listVPsauB1[p] + "}\r\n";
+                                txtPhu.Text += listVTsauB1[p] + "->" + listVPsauB1[p] + "}\r\n\r\n";
                                 break;
                             }
                             txtPhu.Text += listVTsauB1[p] + "->" + listVPsauB1[p] + ",";
                         }
                     }
-                    else
-                    {
-                        txtPhu.Text += "\r\n\t Chỉ xét những PTH có vế trái đa thuộc tính\r\n";
-                        break;
-                    }
                 }
+
+
+                if (testBack != 0)
+                {
+                    txtPhu.Text += "==> Xét lại:\r\n\r\n";
+                    goto Nhan;
+                }
+
+
+
+
 
                 //loại bỏ pth giống nhau sau B2
                 for (int i = 0; i < listVTsauB1.Count; i++)
@@ -152,20 +160,25 @@ namespace KhoaLDQH
 
 
         #region Buoc2LoaiTTduthuavetrai
-        private void LoaiDuThua(string veTrai, TextBox txtPhu, string vePhai, string[] vt, string[] vp, int id)
+        private void LoaiDuThua(string veTrai, TextBox txtPhu, string vePhai, string[] vt, string[] vp, int id, ref int testBack)
         {
+            string[] vtTest = vt;
+            string[] vpTest = vp;
             for (int i = 0; i < veTrai.Length; i++)
             {
-                txtPhu.Text += "• Loại " + veTrai[i] + ":  Ta có (" + PhanTuConLai(veTrai, veTrai[i].ToString()) + ")+  = {" + baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vt, vp, vt.Length) + "}";
-                if (solution.Chua(baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vt, vp, vt.Length), veTrai[i].ToString()) == 1)
+                vtTest[i].Replace(vtTest[i], PhanTuConLai(veTrai, veTrai[i].ToString()));
+                txtPhu.Text += "• Loại " + veTrai[i] + ":  Ta có (" + PhanTuConLai(veTrai, veTrai[i].ToString()) + ")+  = {" + baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vtTest, vp, vtTest.Length) + "}";
+                if (solution.Chua(baodong.BD(PhanTuConLai(veTrai, veTrai[i].ToString()), vtTest, vp, vtTest.Length), vePhai) == 1)
                 {
-                    txtPhu.Text += " chứa " + veTrai[i].ToString() + " => " + veTrai[i].ToString() + " dư thừa\r\n";
+                    txtPhu.Text += " chứa " + vePhai + " => " + veTrai[i].ToString() + " dư thừa\r\n";
                     string tam = veTrai;
                     listVTsauB1[id] = solution.Tru(ref tam, veTrai[i].ToString());
+                    testBack++;
+                    break;
                 }
                 else
                 {
-                    txtPhu.Text += " không chứa " + veTrai[i].ToString() + " => " + veTrai[i].ToString() + " không dư thừa\r\n";
+                    txtPhu.Text += " không chứa " + vePhai + " => " + veTrai[i].ToString() + " không dư thừa\r\n";
                 }
             }
         }

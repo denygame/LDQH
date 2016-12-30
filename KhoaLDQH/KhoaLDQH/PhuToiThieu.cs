@@ -171,7 +171,7 @@ namespace KhoaLDQH
         }
 
 
-        private string PhanTuConLai(string vtrai, string tc)
+        public string PhanTuConLai(string vtrai, string tc)
         {
             string s = vtrai;
             string re;

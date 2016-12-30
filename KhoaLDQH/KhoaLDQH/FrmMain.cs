@@ -45,14 +45,14 @@ namespace KhoaLDQH
 
         private void baoĐóngKhóaPTTDạngChuẩnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkExistsForm("Form1"))
+            if (!checkExistsForm("FrmKhoa"))
             {
-                Form1 f = new Form1();
+                FrmKhoa f = new FrmKhoa();
                 f.MdiParent = this;
                 f.Show();
             }
             else
-                ActiveChildForm("Form1");
+                ActiveChildForm("FrmKhoa");
         }
 
         private void hướngDẫnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,58 +63,58 @@ namespace KhoaLDQH
 
         private void vềPhầnMềmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkExistsForm("VEPM"))
+            if (!checkExistsForm("FrmPhanMem"))
             {
-                VEPM f = new VEPM();
+                FrmPhanMem f = new FrmPhanMem();
                 f.MdiParent = this;
                 f.Show();
             }
-            else ActiveChildForm("VEPM");
+            else ActiveChildForm("FrmPhanMem");
         }
 
         private void vềTácGỉaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkExistsForm("VETG"))
+            if (!checkExistsForm("FrmTacGia"))
             {
-                VETG f = new VETG();
+                FrmTacGia f = new FrmTacGia();
                 f.MdiParent = this;
                 f.Show();
             }
-            else ActiveChildForm("VETG");
+            else ActiveChildForm("FrmTacGia");
         }
 
         private void tìmBaoĐóngCủaXToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SendData obj = new SendData();
-            if (!checkExistsForm("Form2"))
+            if (!checkExistsForm("FrmTimBD"))
             {
-                Form2 f = new Form2(obj);
+                FrmTimBD f = new FrmTimBD(obj);
                 f.MdiParent = this;
                 f.Show();
             }
-            else ActiveChildForm("Form2");
+            else ActiveChildForm("FrmTimBD");
         }
 
         private void kiểmTraPTHSuyDiễnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkExistsForm("Form3"))
+            if (!checkExistsForm("FrmKTsuyDien"))
             {
-                Form3 f = new Form3();
+                FrmKTsuyDien f = new FrmKTsuyDien();
                 f.MdiParent = this;
                 f.Show();
             }
-            else ActiveChildForm("Form3");
+            else ActiveChildForm("FrmKTsuyDien");
         }
 
         private void phânRãBảoToànThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkExistsForm("Form4"))
+            if (!checkExistsForm("FrmKTbttt"))
             {
-                Form4 f = new Form4();
+                FrmKTbttt f = new FrmKTbttt();
                 f.MdiParent = this;
                 f.Show();
             }
-            else ActiveChildForm("Form4");
+            else ActiveChildForm("FrmKTbttt");
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -125,7 +125,15 @@ namespace KhoaLDQH
             fileRoute1.Delete();
         }
 
-
-
+        private void kiểmTraVếTráiPTHToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkExistsForm("FrmKTPTHDT"))
+            {
+                FrmKTPTHDT f = new FrmKTPTHDT();
+                f.MdiParent = this;
+                f.Show();
+            }
+            else ActiveChildForm("FrmKTPTHDT");
+        }
     }
 }

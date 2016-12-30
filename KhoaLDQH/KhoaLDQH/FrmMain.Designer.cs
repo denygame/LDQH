@@ -42,6 +42,7 @@
             this.vềPhầnMềmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vềTácGỉaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kiểmTraPhépPhânRãKhôngMấtMátThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kiểmTraVếTráiPTHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFormCha.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +99,8 @@
             // 
             this.chứcNăngPhụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tìmBaoĐóngCủaXToolStripMenuItem,
-            this.kiểmTraPTHSuyDiễnToolStripMenuItem});
+            this.kiểmTraPTHSuyDiễnToolStripMenuItem,
+            this.kiểmTraVếTráiPTHToolStripMenuItem});
             this.chứcNăngPhụToolStripMenuItem.Name = "chứcNăngPhụToolStripMenuItem";
             this.chứcNăngPhụToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.chứcNăngPhụToolStripMenuItem.Text = "Chức Năng Phụ";
@@ -146,6 +148,13 @@
             this.kiểmTraPhépPhânRãKhôngMấtMátThôngTinToolStripMenuItem.Size = new System.Drawing.Size(340, 22);
             this.kiểmTraPhépPhânRãKhôngMấtMátThôngTinToolStripMenuItem.Text = "Kiểm Tra Phép Phân Rã Không Mất Mát Thông Tin";
             // 
+            // kiểmTraVếTráiPTHToolStripMenuItem
+            // 
+            this.kiểmTraVếTráiPTHToolStripMenuItem.Name = "kiểmTraVếTráiPTHToolStripMenuItem";
+            this.kiểmTraVếTráiPTHToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.kiểmTraVếTráiPTHToolStripMenuItem.Text = "Kiểm Tra Vế Trái PTH";
+            this.kiểmTraVếTráiPTHToolStripMenuItem.Click += new System.EventHandler(this.kiểmTraVếTráiPTHToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,5 +190,6 @@
         private System.Windows.Forms.ToolStripMenuItem tìmBaoĐóngCủaXToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraPTHSuyDiễnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kiểmTraPhépPhânRãKhôngMấtMátThôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kiểmTraVếTráiPTHToolStripMenuItem;
     }
 }

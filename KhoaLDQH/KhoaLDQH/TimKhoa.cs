@@ -339,5 +339,29 @@ namespace KhoaLDQH
 
         }
 
+
+
+        public void Tim1KhoaChoClassKhac(TextBox txtU, TextBox txtF, ref string khoa)
+        {
+            solution.Trai = "";
+            solution.Phai = "";
+
+            int n = 0;
+            solution.layData(txtF.Text, ref n, txtU, txtF);
+
+            khoa = txtU.Text;
+            string tam = khoa;
+            char[] mangKyTu = khoa.ToCharArray(0, khoa.Length);
+
+            for (int i = 0; i < mangKyTu.Length; i++)
+            {
+                string k = solution.Tru(ref tam, mangKyTu[i].ToString());
+                if (baodong.BD(k, solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) == txtU.Text)
+                    khoa = solution.Tru(ref khoa, mangKyTu[i].ToString());
+                tam = khoa;
+            }
+        }
+
+
     }
 }

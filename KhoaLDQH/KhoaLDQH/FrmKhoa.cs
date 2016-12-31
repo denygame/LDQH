@@ -36,14 +36,7 @@ namespace KhoaLDQH
                 comboBox1.Items.Clear();
             
         }
-
         
-
-
-
-
-
-
         public FrmKhoa()
         {
             InitializeComponent();

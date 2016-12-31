@@ -159,5 +159,16 @@ namespace KhoaLDQH
             }
             else ActiveChildForm("FrmKTPTHDT");
         }
+
+        private void chuẩnHóaBằngPPPhânRãToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkExistsForm("FrmPhanRa"))
+            {
+                FrmPhanRa f = new FrmPhanRa();
+                f.MdiParent = this;
+                f.Show();
+            }
+            else ActiveChildForm("FrmPhanRa");
+        }
     }
 }

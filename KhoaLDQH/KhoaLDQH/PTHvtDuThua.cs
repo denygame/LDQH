@@ -11,33 +11,34 @@ namespace KhoaLDQH
     {
         BaoDong baodong = new BaoDong();
         Solution solution = new Solution();
-        TextBox txtU, txtF, txtKT, txtT, txtP;
+        TextBox txtF, txtKT, txtT, txtP;
         string t, p;
         PhuToiThieu ptt = new PhuToiThieu();
 
-        public PTHvtDuThua(TextBox txtU,TextBox txtF,TextBox txtKT, TextBox txtT, TextBox txtP)
+        public PTHvtDuThua(TextBox txtF,TextBox txtKT, TextBox txtT, TextBox txtP)
         {
-            this.txtKT = txtKT; this.txtF = txtF; this.txtU = txtU; this.txtT = txtT; this.txtP = txtP;
+            this.txtKT = txtKT; this.txtF = txtF; this.txtT = txtT; this.txtP = txtP;
             KiemTraPTHvtDuThua();
         }
         
 
         private void KiemTraPTHvtDuThua()
         {
-            txtU.Text = txtU.Text.ToUpper().Replace(" ", "");
-            txtU.Text = solution.XoaGiong(txtU.Text);
-            
-            if (txtF.Text == "") txtF.Text += "Ф";
+            if (txtF.Text == "")
+            {
+                MessageBox.Show("Chưa nhập F", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             txtF.Text = txtF.Text.ToUpper().Replace(" ", "");
             txtKT.Text = "";
-
-
+            txtT.Text = solution.XoaGiong(txtT.Text);
+            txtP.Text = solution.XoaGiong(txtP.Text);
             if (solution.check(txtF.Text) == 1)
             {
                 solution.Trai = "";
                 solution.Phai = "";
                 int n = 0;
-                solution.layData(txtF.Text, ref n, txtU, txtF);
+                solution.layDataKhongU(txtF.Text, ref n, txtF);
 
                 t = txtT.Text;
                 p = txtP.Text;
@@ -58,20 +59,24 @@ namespace KhoaLDQH
                 }
                 else
                 {
+                    int test = 0;
                     for (int i = 0; i < t.Length; i++)
                     {
-                        txtKT.Text += "Loại " + t[i] + " trong " + t + "->" + p + ":\r\n Ta có (" + ptt.PhanTuConLai(t, t[i].ToString()) + ") +  = { " + baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + "}\r\n";
+                        txtKT.Text += "Loại " + t[i] + " trong " + t + "->" + p + ":\r\n\tTa có (" + ptt.PhanTuConLai(t, t[i].ToString()) + ") +  = { " + baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + " }";
 
-                        if (solution.Chua(baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length), t[i].ToString()) == 1)
+                        if (solution.Chua(baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length), p) == 1)
                         {
-                            txtKT.Text += " chứa " + t[i] + " => " + t[i] + " dư thừa\r\n";
-                            txtKT.Text += "\r\n==> Đây là PTH có vế trái dư thừa";
-                            return;
+                            txtKT.Text += " chứa " + p + " => " + t[i] + " dư thừa\r\n";
+                            test++;
                         }
                         else
-                            txtKT.Text += " không chứa " + t[i] + "\r\n";
+                            txtKT.Text += " không chứa " + p + "\r\n";
                     }
-                    txtF.Text += "\r\n==> PTH có vế trái không dư thừa";
+
+                    if (test != 0)
+                        txtKT.Text += "\r\n==> Đây là PTH có vế trái dư thừa";
+                    else
+                        txtKT.Text += "\r\n==> PTH có vế trái không dư thừa";
                 }
             }
 

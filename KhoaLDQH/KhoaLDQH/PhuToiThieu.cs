@@ -118,11 +118,7 @@ namespace KhoaLDQH
                     txtPhu.Text += "==> Xét lại:\r\n\r\n";
                     goto Nhan;
                 }
-
-
-
-
-
+                
                 //loại bỏ pth giống nhau sau B2
                 for (int i = 0; i < listVTsauB1.Count; i++)
                 {

@@ -21,14 +21,7 @@ namespace KhoaLDQH
         {
             FrmKhoa f1 = new FrmKhoa();
             FrmKTsuyDien f = new FrmKTsuyDien();
-            if (txtU.Text == "")
-            {
-                MessageBox.Show("Chưa nhập U!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                f1.Reset(txtKT);
-                return;
-            }
-
-            if (f1.checkU(txtU) == 0) return;
+            
 
             if (txtT.Text == "" || txtP.Text == "")
             {
@@ -38,7 +31,7 @@ namespace KhoaLDQH
             if (f.CheckPTH(txtT) == 0 || f.CheckPTH(txtP) == 0) return;
             txtT.Text = txtT.Text.ToUpper().Replace(" ", "");
             txtP.Text = txtP.Text.ToUpper().Replace(" ", "");
-            PTHvtDuThua pth = new PTHvtDuThua(txtU, txtF, txtKT, txtT,txtP);
+            PTHvtDuThua pth = new PTHvtDuThua(txtF, txtKT, txtT,txtP);
         }
     }
 }

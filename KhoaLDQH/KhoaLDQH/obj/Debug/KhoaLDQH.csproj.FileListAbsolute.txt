@@ -27,3 +27,4 @@ E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.FrmPhanMem.resources
 E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.FrmTacGia.resources
 E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.FrmKTPTHvtDT.resources
 E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.FrmPTT.resources
+E:\KhoaLDQH\KhoaLDQH\obj\Debug\KhoaLDQH.FrmKTPTHDT.resources

@@ -54,6 +54,12 @@
       <DependentUpon>Armstrong.cs</DependentUpon>
     </Compile>
     <Compile Include="BaoDong.cs" />
+    <Compile Include="FrmKTPTHDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKTPTHDT.Designer.cs">
+      <DependentUpon>FrmKTPTHDT.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmKTPTHvtDT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,7 @@
       <DependentUpon>HDSD.cs</DependentUpon>
     </Compile>
     <Compile Include="PhanRa.cs" />
+    <Compile Include="PTHduthua.cs" />
     <Compile Include="PTHvtDuThua.cs" />
     <Compile Include="FrmPhanMem.cs">
       <SubType>Form</SubType>
@@ -125,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="Armstrong.resx">
       <DependentUpon>Armstrong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKTPTHDT.resx">
+      <DependentUpon>FrmKTPTHDT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKTPTHvtDT.resx">
       <DependentUpon>FrmKTPTHvtDT.cs</DependentUpon>

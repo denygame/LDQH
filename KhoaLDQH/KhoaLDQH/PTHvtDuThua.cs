@@ -43,9 +43,13 @@ namespace KhoaLDQH
                 t = txtT.Text;
                 p = txtP.Text;
 
-                int dem = 0;
-                for(int i=0;i<solution.PhuThuocHam.Length;i++)
-                    if (t == solution.VeTrai[i] && p == solution.VePhai[i]) dem++;
+                int dem = 0, pthThu = 0;
+                for (int i = 0; i < solution.PhuThuocHam.Length; i++)
+                    if (t == solution.VeTrai[i] && p == solution.VePhai[i])
+                    {
+                        dem++;
+                        pthThu = i;
+                    }
                 if(dem == 0)
                 {
                     txtKT.Text += "Không có phụ thuộc hàm này trong tập F";
@@ -62,9 +66,12 @@ namespace KhoaLDQH
                     int test = 0;
                     for (int i = 0; i < t.Length; i++)
                     {
-                        txtKT.Text += "Loại " + t[i] + " trong " + t + "->" + p + ":\r\n\tTa có (" + ptt.PhanTuConLai(t, t[i].ToString()) + ") +  = { " + baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length) + " }";
+                        string[] vtTest = solution.VeTrai;
+                        vtTest[pthThu].Replace(vtTest[pthThu], ptt.PhanTuConLai(t, t[i].ToString()));
 
-                        if (solution.Chua(baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), solution.VeTrai, solution.VePhai, solution.PhuThuocHam.Length), p) == 1)
+                        txtKT.Text += "Loại " + t[i] + " trong " + t + "->" + p + ":\r\n\tTa có (" + ptt.PhanTuConLai(t, t[i].ToString()) + ") +  = { " + baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), vtTest, solution.VePhai, vtTest.Length) + " }";
+
+                        if (solution.Chua(baodong.BD(ptt.PhanTuConLai(t, t[i].ToString()), vtTest, solution.VePhai, vtTest.Length), p) == 1)
                         {
                             txtKT.Text += " chứa " + p + " => " + t[i] + " dư thừa\r\n";
                             test++;
@@ -79,10 +86,7 @@ namespace KhoaLDQH
                         txtKT.Text += "\r\n==> PTH có vế trái không dư thừa";
                 }
             }
-
-
-
-
+            
 
         }
     }

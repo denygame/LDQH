@@ -19,10 +19,8 @@ namespace KhoaLDQH
 
         private void btnKTPTH_Click(object sender, EventArgs e)
         {
-            FrmKhoa f1 = new FrmKhoa();
             FrmKTsuyDien f = new FrmKTsuyDien();
             
-
             if (txtT.Text == "" || txtP.Text == "")
             {
                 MessageBox.Show("Chưa nhập PTH!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);

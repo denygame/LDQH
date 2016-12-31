@@ -169,7 +169,7 @@ namespace KhoaLDQH
                     txtPhu.Text += " chứa " + vePhai + " => " + veTrai[i].ToString() + " dư thừa\r\n";
                     string tam = veTrai;
                     listVTsauB1[id] = solution.Tru(ref tam, veTrai[i].ToString());
-                    testBack++;
+                    if (listVTsauB1[id].Length != 1) testBack++;
                     break;
                 }
                 else

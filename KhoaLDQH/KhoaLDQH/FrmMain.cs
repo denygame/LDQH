@@ -129,13 +129,13 @@ namespace KhoaLDQH
 
         private void kiểmTraVếTráiPTHToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkExistsForm("FrmKTPTHDT"))
+            if (!checkExistsForm("FrmKTPTHvtDT"))
             {
                 FrmKTPTHvtDT f = new FrmKTPTHvtDT();
                 f.MdiParent = this;
                 f.Show();
             }
-            else ActiveChildForm("FrmKTPTHDT");
+            else ActiveChildForm("FrmKTPTHvtDT");
         }
 
         private void phủTốiThiểuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,6 +147,17 @@ namespace KhoaLDQH
                 f.Show();
             }
             else ActiveChildForm("FrmPTT");
+        }
+
+        private void kiểmTraPTHDưThừaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkExistsForm("FrmKTPTHDT"))
+            {
+                FrmKTPTHDT f = new FrmKTPTHDT();
+                f.MdiParent = this;
+                f.Show();
+            }
+            else ActiveChildForm("FrmKTPTHDT");
         }
     }
 }

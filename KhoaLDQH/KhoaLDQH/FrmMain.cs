@@ -60,18 +60,7 @@ namespace KhoaLDQH
             HDSD f = new HDSD();
             f.ShowDialog();
         }
-
-        private void vềPhầnMềmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!checkExistsForm("FrmPhanMem"))
-            {
-                FrmPhanMem f = new FrmPhanMem();
-                f.MdiParent = this;
-                f.Show();
-            }
-            else ActiveChildForm("FrmPhanMem");
-        }
-
+        
         private void vềTácGỉaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!checkExistsForm("FrmTacGia"))

@@ -111,11 +111,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(169, 34);
+            this.label5.Location = new System.Drawing.Point(331, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(431, 22);
+            this.label5.Size = new System.Drawing.Size(127, 22);
             this.label5.TabIndex = 28;
-            this.label5.Text = "CHUẨN HÓA BẰNG PHƯƠNG PHÁP PHÂN RÃ";
+            this.label5.Text = "CHUẨN HÓA";
             // 
             // btnShow
             // 
@@ -147,7 +147,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPhanRa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chuẩn Hóa Phân Rã";
+            this.Text = "Chuẩn Hóa";
             this.ResumeLayout(false);
             this.PerformLayout();
 
